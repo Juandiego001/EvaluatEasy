@@ -1,12 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Dashboard from './dasboahrd/Dasboard';
+import NavbarMenu from './NavBar/navbar';
+import {BrowserRouter as Router, Route,} from 'react-router-dom';
+import Trabajadores from './Trabajadores/trabajadores';
+import Evaluacion from './Evaluacion/evaluacion';
 
-function App() {
+const App=() => {
   return (
-   <div className="App">
-<Dashboard/>
-    </div>
+    <div>
+          <Dashboard/>
+      </div>
   );
 }
 
