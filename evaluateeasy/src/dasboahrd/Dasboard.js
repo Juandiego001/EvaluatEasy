@@ -200,13 +200,13 @@ const Dashboard = () => {
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-      <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-      <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
-      <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+      <script src="https://unpkg.com/react/umd/react.production.min.js" crossOrigin="anonymous"></script>
+      <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossOrigin="anonymous"></script>
+      <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin="anonymous"></script>
 
 
       <Navbar bg="warning" expand={false}>
@@ -277,7 +277,7 @@ const Dashboard = () => {
             <MDBCard >
               <MDBCardBody>
                 <MDBCardTitle><b>Evaluaciones realizadas </b></MDBCardTitle>
-                <MDBBtn Routes="/Trabajadores" >Ver</MDBBtn>
+                <MDBBtn routes="/Trabajadores" >Ver</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
