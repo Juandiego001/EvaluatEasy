@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Chart } from 'react-google-charts';
 import {
   MDBCard, MDBCardBody,MDBBtn, MDBCardFooter, MDBCardHeader, MDBCardImage, MDBCardOverlay, MDBCardSubTitle,
@@ -41,8 +41,8 @@ const NavbarMenu = () => {
      </Offcanvas.Header>
      <Offcanvas.Body>
        <Nav className="justify-content-end flex-grow-1 pe-3">
-         <Nav.Link Link to="/">Dasboard</Nav.Link>
-         <Nav.Link Link to="Trabajadores">Trabajadores</Nav.Link>
+         <NavLink to="/">Dasboard</NavLink>
+         <NavLink to="/trabajadores">Trabajadores</NavLink>
          <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
            <NavDropdown.Item Link to="/Evaluacion"  >Evaluacion</NavDropdown.Item>
            <NavDropdown.Item href="#action4" >Another action</NavDropdown.Item>

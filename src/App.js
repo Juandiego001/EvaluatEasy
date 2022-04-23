@@ -1,15 +1,16 @@
 import './App.css';
-import Dashboard from './dasboahrd/Dasboard';
-import NavbarMenu from './NavBar/navbar';
-import {BrowserRouter as Router, Route,} from 'react-router-dom';
-import Trabajadores from './Trabajadores/trabajadores';
-import Evaluacion from './Evaluacion/evaluacion';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Trabajadores from './pages/Trabajadores/Trabajadores';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App=() => {
   return (
-    <div>
-          <Dashboard/>
-      </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/trabajadores" element={<Trabajadores></Trabajadores>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

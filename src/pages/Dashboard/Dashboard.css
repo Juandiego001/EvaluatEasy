@@ -1,10 +1,17 @@
 body {
     font-family: Roboto, Helvetica, Arial, sans-serif;
   }
-.container{
-margin-top: 8px;
+
+.container {
+  margin-top: 8px;
 }
-card-body{
+
+card-body {
     display: block; box-sizing: border-box; height: 303px; width: 303px; 
+}
+
+.Pruebas {
+  text-decoration: none;
+  color: black;
 }
 

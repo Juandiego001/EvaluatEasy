@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import './Dasboard.css';
+import styles from './Dashboard.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import { Chart } from 'react-google-charts';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Trabajadores from './../Trabajadores/trabajadores';
-import Evaluacion from './../Evaluacion/evaluacion'
-import {
-  MDBCard, MDBCardBody, MDBBtn, MDBCardFooter, MDBCardHeader, MDBCardImage, MDBCardOverlay, MDBCardSubTitle,
-  MDBCardTitle, MDBCardText, MDBCardGroup, MDBCardLink, MDBCol, MDBRow,
-} from 'mdb-react-ui-kit';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { MDBCard, MDBCardBody, MDBBtn, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdb-react-ui-kit';
 import {
   Button, Navbar, Container, NavDropdown, Offcanvas, Nav, FormControl, Form,
   Card, CardGroup, CardDeck, CardColumns, CardBody, CardHeader, CardFooter,
@@ -223,10 +218,12 @@ const Dashboard = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                 <Link className="nav-link active" aria-current="page" to="/">Dasboard</Link>
-                <Nav.Link Link to="Trabajadores">Trabajadores</Nav.Link>
+                 <Link className="nav-link active" aria-current="page" to="/">Dashboard</Link>
+                <NavLink className="nav-link active" to="/trabajadores">Trabajadores</NavLink>
                 <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-                  <NavDropdown.Item Link to="/Evaluacion"  >Evaluacion</NavDropdown.Item>
+                  <NavDropdown.Item >
+                    <Link to="/evaluacion">Evaluacion</Link>
+                  </NavDropdown.Item>
                   <NavDropdown.Item href="#action4" >Another action</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action5" id='Link'>
