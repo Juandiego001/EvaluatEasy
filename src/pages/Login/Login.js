@@ -10,15 +10,19 @@ const Login = () => (
     </div>
 
     <div className={styles.ContenedorFormularioInciarSesion}>
-        <form>
-          <input name="correo" id="correo" placeholder="Correo electrónico" type="text" />
-          <input name="contrasena" id="contrasena" type="password" placeholder="************" />
+      <div>
+        
+        <input name="correo" id="correo" placeholder="Correo electrónico" type="text" />
+      </div>
+      
+      <div>
+        <input name="contrasena" id="contrasena" type="password" />
+      </div>
 
-          <div>
-            <button>Iniciar sesión</button>
-            <button>Olvidé mi contraseña</button>
-          </div>
-        </form>
+      <div className={styles.FormularioBotones}>
+        <button>Iniciar sesión</button>
+        <button>Olvidé mi contraseña</button>
+      </div>
     </div>
   </div>
 );
