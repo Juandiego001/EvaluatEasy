@@ -11,7 +11,7 @@ const Login = () => (
 
     <div className={styles.ContenedorFormularioInciarSesion}>
         <form>
-          <input name="correo" id="correo" placeholder="Correo electrónico" type="text" />
+          <input name="correo" id="correo" placeholder="Correo electrónico" type="text" autocomplete="off" />
           <input name="contrasena" id="contrasena" type="password" placeholder="************" />
 
           <div>
