@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>60</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Coevaluacion
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>230</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Usuario
+--
+&lt;&lt;Pk&gt;&gt; correo: texto
+contrasena: texto
+nombre: texto
+apellido: texto
+cargo: texto
+tipo: numerico
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>280</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Evaluacion
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>500</y>
+      <w>210</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Valoracion
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+letra: caracter [0..1]
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>300</y>
+      <w>210</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Competencia
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>470</y>
+      <w>210</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Escala
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+letra:caracter
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>290</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1
+crea</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>350</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=2
+responde</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>110</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=1
+realiza</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>390</y>
+      <w>70</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=1
+realiza</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
