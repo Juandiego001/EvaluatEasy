@@ -26,13 +26,30 @@ import {
 
 class Trabajadores extends React.Component {
 
-  state={
-    abierto: false,
-  }
+  state = {
+    modalCrear: false,
+    modalActualizar: false,
+  };
 
-  abrirModal=()=>{
-    this.setState({abierto: !this.state.abierto});
-  }
+  mostrarModalCrear=()=>{
+    this.setState({
+      modalCrear: true,
+    });
+  };
+
+  cerrarModalCrear=()=>{
+    this.setState({modalCrear: false});
+  };
+
+  mostrarModalActualizar = () => {
+    this.setState({
+      modalActualizar: true,
+    });
+  };
+
+  cerrarModalActualizar = () => {
+    this.setState({ modalActualizar: false });
+  };
 
   render(){
     return (
@@ -63,7 +80,7 @@ class Trabajadores extends React.Component {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <NavLink to="/" >Home</NavLink>
+                  <NavLink to="/Dashboard" >Home</NavLink>
                   <NavLink to="#action2" >Link</NavLink>
                   <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
                     <NavDropdown.Item href="#action3"  >Action</NavDropdown.Item>
@@ -91,7 +108,8 @@ class Trabajadores extends React.Component {
         <div className='dashboard_list'>
         <Container>
           <div className='form_list'> 
-            <Button type='button' className="btn btn-primary" onClick={this.abrirModal}>Agregar Nuevo Empleado</Button>
+            <Button type='button' className="btn btn-primary" onClick={this.mostrarModalCrear}>Agregar Nuevo Empleado</Button>
+          
             <form className="d-flex">
               <input className="form-control me-2" type="search" placeholder="Buscar empleado" aria-label="Search"/>
                 <button className="btn btn-outline-success" type="submit">Buscar</button>
@@ -122,7 +140,7 @@ class Trabajadores extends React.Component {
 
                 <div className="d-grid gap-2 d-md-block">
 
-                  <a className="btn btn-primary" href="#" role="button">Editar</a>
+                  <Button className="btn btn-primary" onClick={this.mostrarModalActualizar} role="button">Editar</Button>
                   <Button className="btn btn-danger" type='button'>Eliminar</Button>
 
                 </div>  
@@ -134,7 +152,7 @@ class Trabajadores extends React.Component {
         </Container>
         </div>
 
-        <Modal isOpen={this.state.abierto} >
+        <Modal isOpen={this.state.modalCrear} >
         <ModalHeader>
           Agregar Empleado
         </ModalHeader>
@@ -168,8 +186,46 @@ class Trabajadores extends React.Component {
 
         <ModalFooter>
             <Button color="primary">Agregar</Button>
-            <Button color="secondary" onClick={this.abrirModal}>Cerrar</Button>
+            <Button color="secondary" onClick={this.cerrarModalCrear}>Cerrar</Button>
         </ModalFooter>
+      </Modal>
+
+
+      <Modal isOpen={this.state.modalActualizar}>
+        <ModalHeader>
+          Editar Empleado
+        </ModalHeader>
+        <ModalBody>
+        <FormGroup>
+            <Label for="nombre">Nombres*</Label>
+            <Input type="text" id="Nombre"/> 
+          </FormGroup>
+          <FormGroup>
+            <Label for="apellido">Apellidos*</Label>
+            <Input type="text" id="apellido"/> 
+          </FormGroup>
+          <FormGroup>
+            <Label for="cargo">Cargo*</Label>
+            <select className="form-select" id='cargo' aria-label="Default select example">
+                <option selected disabled>Selecciona un cargo</option>
+                <option value="Cocinero">Cocinero</option>
+                <option value="Mesero">Mesero</option>
+                <option value="Repartidor">Repartidor</option>
+            </select> 
+          </FormGroup>
+          <FormGroup>
+            <Label for="correo">Correo*</Label>
+            <Input type="text" id="correo"/> 
+          </FormGroup>
+          <FormGroup>
+            <Label for="telefono">Telefono*</Label>
+            <Input type="text" id="telefono"/> 
+          </FormGroup>
+          <ModalFooter>
+            <Button color="primary">Aceptar</Button>
+            <Button color="secondary" onClick={this.cerrarModalActualizar}>Cerrar</Button>
+        </ModalFooter>
+        </ModalBody>
       </Modal>
        
 
