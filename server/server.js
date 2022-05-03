@@ -5,14 +5,14 @@ const mysql = require('mysql');
 const app = express();
 
 // Importando rutas
-
+const rUsuarios = require('./routes/usuarios.routes.js');
 
 
 // Verificando conexión de mysql
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'masterkey',
+    password: 'mysql',
     database: 'evaluateasy'
 });
 
@@ -21,14 +21,15 @@ connection.connect(err => {
         console.log('Ocurrió un error al intentar conectarse a la base de datos.');
         console.log(err.stack);
     }
-
-    console.log('Conexión a la base de datos exitosa');
 });
 
 
 // Middlewares
 app.use(cors())
 app.use(express.json())
+
+// Routes
+rUsuarios(app, connection); 
 
 // Iniciando el servidor
 app.listen(3001, () => {

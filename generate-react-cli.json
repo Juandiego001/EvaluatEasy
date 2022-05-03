@@ -24,6 +24,13 @@
         "withStory": false,
         "withStyle": false,
         "withTest": false
+      },
+      "service": {
+        "path": "src/services",
+        "withLazy": false,
+        "withStory": false,
+        "withStyle": false,
+        "withTest": false
       }
     }
   }

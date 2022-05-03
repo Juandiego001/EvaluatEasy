@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>60</y>
+      <y>80</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -20,7 +20,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>100</x>
-      <y>230</y>
+      <y>250</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -40,7 +40,7 @@ tipo: numerico
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>280</y>
+      <y>300</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -55,7 +55,7 @@ tipo: numerico
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>500</y>
+      <y>520</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -71,7 +71,7 @@ letra: caracter [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>300</y>
+      <y>320</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -86,7 +86,7 @@ letra: caracter [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>470</y>
+      <y>490</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -102,7 +102,7 @@ letra:caracter
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>290</y>
+      <y>310</y>
       <w>220</w>
       <h>50</h>
     </coordinates>
@@ -116,7 +116,7 @@ crea</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>350</y>
+      <y>370</y>
       <w>220</w>
       <h>50</h>
     </coordinates>
@@ -130,7 +130,7 @@ responde</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>110</y>
+      <y>130</y>
       <w>280</w>
       <h>140</h>
     </coordinates>
@@ -144,7 +144,7 @@ realiza</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>390</y>
+      <y>410</y>
       <w>70</w>
       <h>130</h>
     </coordinates>
@@ -153,5 +153,23 @@ m1=0..1
 m2=1
 realiza</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>30</x>
+      <y>720</y>
+      <w>450</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>*Notas.*
+
+1. tipo en Usuarios es un atributo que permite identificar el tipo de usuario.
+1 --&gt; Gerente.
+2 --&gt; Auxiliar administrativo.
+3 --&gt; Operario.
+bg=blue
+fg=white</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
