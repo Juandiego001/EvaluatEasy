@@ -15,3 +15,7 @@ card-body {
   color: black;
 }
 
+.Navbar {
+  background-color: var(--azul-2);
+}
+
