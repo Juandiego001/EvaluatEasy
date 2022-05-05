@@ -10,8 +10,8 @@ CREATE TABLE USUARIOS(
     contrasena VARCHAR(30) NOT NULL,
     nombres VARCHAR(20) NOT NULL,
     apellidos VARCHAR(20) NOT NULL,
-    cargo VARCHAR(30) NOT NULL,
-    tipo INTEGER NOT NULL
+    cargo VARCHAR(30) NULL,
+    tipo INTEGER NOT NULL,
 );
 
 -- Inserción de un usuario GERENTE

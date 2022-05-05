@@ -21,7 +21,7 @@ import {
   Label,
   Input,
 } from "reactstrap";
-
+import UsuariosService from '../../services/UsuariosService/UsuariosService';
 
 
 class Trabajadores extends React.Component {
@@ -29,6 +29,10 @@ class Trabajadores extends React.Component {
   state = {
     modalCrear: false,
     modalActualizar: false,
+    nombres: '',
+    apellidos: '',
+    correo: '',
+    telefono: ''
   };
 
   mostrarModalCrear=()=>{
@@ -49,6 +53,51 @@ class Trabajadores extends React.Component {
 
   cerrarModalActualizar = () => {
     this.setState({ modalActualizar: false });
+  };
+
+  setNombres = (event) => {
+
+    console.log(event);
+
+    this.setState({
+      nombres: event.target.value
+    });
+  };
+
+  setApellidos = (event) => {
+    this.setState({
+      apellidos: event.target.value
+    });
+  };
+
+  setCargo = (event) => {
+    this.setState({
+      cargo: event.target.value
+    });
+  };  
+
+  setCorreo = (event) => {
+    this.setState({
+      correo: event.target.value
+    });
+  };
+
+  setTelefono = (event) => {
+    this.setState({
+      telefono: event.target.value
+    });
+  };
+
+  agregarEmpleado = () => {
+    alert('Se ejecuto la funcion');
+    UsuariosService.postUsuarios(this.state.nombres, this.state.apellidos, this.state.cargo, this.state.correo, this.state.telefono)
+      .then(datos => {
+        alert('Se ha creado el usuario con éxito');
+      })
+
+      .catch(error => {
+        alert('Ocurrió un error al intentar crear un usuario');
+      })
   };
 
   render(){
@@ -159,11 +208,11 @@ class Trabajadores extends React.Component {
         <ModalBody>
           <FormGroup>
             <Label for="nombre">Nombres*</Label>
-            <Input type="text" id="Nombre"/> 
+            <Input type="text" id="Nombre" onChange={this.setNombres} /> 
           </FormGroup>
           <FormGroup>
             <Label for="apellido">Apellidos*</Label>
-            <Input type="text" id="apellido"/> 
+            <Input type="text" id="apellido" onChange={this.setApellidos} /> 
           </FormGroup>
           <FormGroup>
             <Label for="cargo">Cargo*</Label>
@@ -176,16 +225,16 @@ class Trabajadores extends React.Component {
           </FormGroup>
           <FormGroup>
             <Label for="correo">Correo*</Label>
-            <Input type="text" id="correo"/> 
+            <Input type="text" id="correo" onChange={this.setCorreo} /> 
           </FormGroup>
           <FormGroup>
             <Label for="telefono">Telefono*</Label>
-            <Input type="text" id="telefono"/> 
+            <Input type="text" id="telefono" onChange={this.setTelefono}/> 
           </FormGroup>
         </ModalBody>
 
         <ModalFooter>
-            <Button color="primary">Agregar</Button>
+            <Button color="primary" onClick={this.agregarEmpleado}>Agregar</Button>
             <Button color="secondary" onClick={this.cerrarModalCrear}>Cerrar</Button>
         </ModalFooter>
       </Modal>

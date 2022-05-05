@@ -12,6 +12,17 @@ class UsuariosService {
       }
     }
   )}
+
+  async postUsuarios(nombres, apellidos, cargo, correo, telefono) {
+    return await axios.post('http://localhost:3001/usuarios', 
+    { 
+      nombres: nombres,
+      apellidos: apellidos,
+      cargo: 'Mesero',
+      correo: correo,
+      telefono: telefono
+    })
+  }
   
 }
 

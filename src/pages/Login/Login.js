@@ -56,7 +56,7 @@ const Login = (props) => {
                 break;
               
               case 3:
-                navigate('/home-operarios', { 
+                navigate('/trabajadores', { 
                   state: 
                     { 
                       nombres: nombres,

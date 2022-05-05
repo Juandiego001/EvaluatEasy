@@ -10,7 +10,7 @@ module.exports = (app, connection) => {
         })
 
         .post((req, res) => {
-
+            cUsuarios.postUsuarios(connection, req, res);
         })
 
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.0.0">
+<diagram program="umlet" version="14.3.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>80</y>
+      <y>0</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -20,7 +20,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>100</x>
-      <y>250</y>
+      <y>170</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -30,8 +30,10 @@
 contrasena: texto
 nombre: texto
 apellido: texto
-cargo: texto
+cargo: texto [0..1]
 tipo: numerico
+telefono: numerico
+verificarInicio: booleano
 --
 </panel_attributes>
     <additional_attributes/>
@@ -40,7 +42,7 @@ tipo: numerico
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>300</y>
+      <y>220</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -55,7 +57,7 @@ tipo: numerico
     <id>UMLClass</id>
     <coordinates>
       <x>500</x>
-      <y>520</y>
+      <y>440</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -71,7 +73,7 @@ letra: caracter [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>320</y>
+      <y>240</y>
       <w>210</w>
       <h>120</h>
     </coordinates>
@@ -86,7 +88,7 @@ letra: caracter [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>730</x>
-      <y>490</y>
+      <y>410</y>
       <w>210</w>
       <h>130</h>
     </coordinates>
@@ -102,7 +104,7 @@ letra:caracter
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>310</y>
+      <y>230</y>
       <w>220</w>
       <h>50</h>
     </coordinates>
@@ -116,7 +118,7 @@ crea</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>300</x>
-      <y>370</y>
+      <y>290</y>
       <w>220</w>
       <h>50</h>
     </coordinates>
@@ -130,7 +132,7 @@ responde</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>130</y>
+      <y>50</y>
       <w>280</w>
       <h>140</h>
     </coordinates>
@@ -144,7 +146,7 @@ realiza</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>580</x>
-      <y>410</y>
+      <y>330</y>
       <w>70</w>
       <h>130</h>
     </coordinates>
@@ -157,9 +159,9 @@ realiza</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>30</x>
-      <y>720</y>
-      <w>450</w>
+      <x>20</x>
+      <y>630</y>
+      <w>490</w>
       <h>210</h>
     </coordinates>
     <panel_attributes>*Notas.*

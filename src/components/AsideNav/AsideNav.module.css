@@ -46,7 +46,7 @@ ul li a {
     align-items: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    text-shadow: rgba(0,0,0,.7) 0 0.35rem 0.5rem;
+    text-shadow: rgba(0,0,0,.35) 0 0.35rem 0.5rem;
 }
 
 h4 {
