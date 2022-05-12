@@ -56,9 +56,6 @@ class Trabajadores extends React.Component {
   };
 
   setNombres = (event) => {
-
-    console.log(event);
-
     this.setState({
       nombres: event.target.value
     });
