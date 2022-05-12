@@ -11,6 +11,7 @@ import {
   Button, Navbar,Table,Container, NavDropdown, Offcanvas, Nav, FormControl, Form,
   Card, CardGroup, CardDeck, CardColumns, CardBody, CardHeader, CardFooter,
 } from 'react-bootstrap';
+import Menu from '../../components/Menu/Menu';
 
 import {
   Modal,
@@ -115,44 +116,7 @@ class Trabajadores extends React.Component {
         <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
         <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
 
-        <Navbar bg="warning" expand={false}>
-          <Container fluid>
-            <Navbar.Brand href="../Dashboard/Dashboard" ><NavLink to="/Dashboard">EvaluatEasy</NavLink></Navbar.Brand>
-            <Navbar.Toggle aria-controls="offcanvasNavbar" />
-            <Navbar.Offcanvas
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id="offcanvasNavbarLabel">Empleados</Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <NavLink to="/Dashboard" >Home</NavLink>
-                  <NavLink to="#action2" >Link</NavLink>
-                  <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
-                    <NavDropdown.Item href="#action3"  >Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4" >Another action</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5" id='Link'>
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-                <Form className="d-flex">
-                  <FormControl
-                    type="search"
-                    placeholder="Buscar"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-dark">Buscar</Button>
-                </Form>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
+        <Menu />
 
         <div className='dashboard_list'>
         <Container>

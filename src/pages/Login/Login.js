@@ -27,7 +27,6 @@ const Login = (props) => {
 
     UsuariosService.logIn(correo, contrasena)
       .then((datos) => {
-        console.log(datos.data);
 
         if (datos.data.login) {
           let nombres = datos.data.nombres;

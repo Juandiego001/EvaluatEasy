@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>0</y>
-      <w>210</w>
-      <h>190</h>
+      <x>477</x>
+      <y>27</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>Coevaluacion
 --
@@ -19,10 +19,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>170</y>
-      <w>210</w>
-      <h>190</h>
+      <x>117</x>
+      <y>180</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -41,10 +41,10 @@ verificarInicio: booleano
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>220</y>
-      <w>210</w>
-      <h>120</h>
+      <x>477</x>
+      <y>225</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Evaluacion
 --
@@ -56,10 +56,10 @@ verificarInicio: booleano
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>440</y>
-      <w>210</w>
-      <h>130</h>
+      <x>477</x>
+      <y>423</y>
+      <w>189</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>Valoracion
 --
@@ -72,10 +72,10 @@ letra: caracter [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>240</y>
-      <w>210</w>
-      <h>120</h>
+      <x>684</x>
+      <y>243</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Competencia
 --
@@ -87,10 +87,10 @@ letra: caracter [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>410</y>
-      <w>210</w>
-      <h>130</h>
+      <x>684</x>
+      <y>396</y>
+      <w>189</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>Escala
 --
@@ -103,10 +103,10 @@ letra:caracter
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>230</y>
-      <w>220</w>
-      <h>50</h>
+      <x>297</x>
+      <y>234</y>
+      <w>198</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -117,10 +117,10 @@ crea</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>290</y>
-      <w>220</w>
-      <h>50</h>
+      <x>297</x>
+      <y>288</y>
+      <w>198</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -131,10 +131,10 @@ responde</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>50</y>
-      <w>280</w>
-      <h>140</h>
+      <x>243</x>
+      <y>72</y>
+      <w>252</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -145,10 +145,10 @@ realiza</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>330</y>
-      <w>70</w>
-      <h>130</h>
+      <x>549</x>
+      <y>324</y>
+      <w>63</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -159,14 +159,15 @@ realiza</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>20</x>
-      <y>630</y>
-      <w>490</w>
-      <h>210</h>
+      <x>27</x>
+      <y>378</y>
+      <w>405</w>
+      <h>189</h>
     </coordinates>
     <panel_attributes>*Notas.*
 
-1. tipo en Usuarios es un atributo que permite identificar el tipo de usuario.
+1. tipo en Usuarios es un atributo que permite identificar el 
+tipo de usuario.
 1 --&gt; Gerente.
 2 --&gt; Auxiliar administrativo.
 3 --&gt; Operario.
