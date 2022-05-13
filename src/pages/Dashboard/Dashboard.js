@@ -222,7 +222,7 @@ const Dashboard = () => {
                 <NavLink className="nav-link active" to="/trabajadores">Trabajadores</NavLink>
                 <NavDropdown title="Dropdown" id="offcanvasNavbarDropdown">
                   <NavDropdown.Item >
-                    <Link to="/evaluacion">Evaluacion</Link>
+                    <Link to="/evaluaciones">Evaluacion</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action4" >Another action</NavDropdown.Item>
                   <NavDropdown.Divider />

@@ -4,6 +4,9 @@ exports.logIn = (connection, req, res) => {
     let correo = req.query.correo;
     let contrasena = req.query.contrasena;
 
+    //PTT: Muchachos esto genial para la materia pero como consejo para cuando esten trabajando  nunca lo hagan mantenga esto separado de el fornt por 
+    // cuestiones de seguridad y por que son sumamente vulnerables a SQL injection aqui de hecho ya tienen una aplicacion totlamente insegura y en especial 
+    // con los datos que se plantea manejar aqui
     connection.query('SELECT nombres, apellidos, tipo FROM USUARIOS WHERE correo = ? AND contrasena = ?', [
         correo, contrasena
     ], (err, results, fields) => {
