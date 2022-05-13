@@ -7,3 +7,5 @@ class EstadoEmpleadosGerentesService {
   }
 
 }
+
+export default new EstadoEmpleadosGerentesService();
