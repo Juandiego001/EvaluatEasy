@@ -204,7 +204,7 @@ const Dashboard = () => {
       <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin="anonymous"></script>
 
 
-      <Navbar bg="info" expand={false}>
+      <Navbar bg="warning" expand={false}>
         <Container fluid>
           <Navbar.Brand href="#" color='white'><b>EvaluatEasy</b></Navbar.Brand>
           <Navbar.Toggle aria-controls="offcanvasNavbar" />
@@ -299,7 +299,7 @@ const Dashboard = () => {
       </div>
 
 
-      <div className="container" styles="margin-bottom: 8px;">
+      <div className="container">
         <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
           <MDBCol>
             <MDBCard >
