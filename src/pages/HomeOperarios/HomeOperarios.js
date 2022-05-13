@@ -7,7 +7,7 @@ const HomeOperarios = (props) => {
 
   return (
     <div className={styles.HomeOperarios}>
-      HomeOperarios Component
+      
     </div>
   )};
 

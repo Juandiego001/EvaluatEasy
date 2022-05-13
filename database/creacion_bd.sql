@@ -12,6 +12,7 @@ CREATE TABLE USUARIOS(
     apellidos VARCHAR(20) NOT NULL,
     cargo VARCHAR(30) NULL,
     tipo INTEGER NOT NULL,
+    estado INTEGER NULL
 );
 
 -- Inserción de un usuario GERENTE

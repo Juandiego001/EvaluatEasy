@@ -34,7 +34,7 @@ cargo: texto [0..1]
 tipo: numerico
 telefono: numerico
 verificarInicio: booleano
-estado: numerico
+estado: numerico [0..1]
 --
 </panel_attributes>
     <additional_attributes/>
@@ -180,6 +180,9 @@ evaluación, si ya se asignó la coevaluación y si ya realizó la coevaluación
 3 -&gt; Se realizó la evaluación y no se ha asignado la coevaluación
 4 -&gt; Se asignó la coevaluación y no se ha realizado
 5 -&gt; Se realizó la coevaluación
+También cabe aclarar que el estado es propio de los empleados, por lo tanto
+si el tipo es 3, entonces se le asignará un estado al momento de crearse, de
+lo contrario, sencillamente estará vacío.
 bg=blue
 fg=white
 

@@ -4,12 +4,17 @@ import PropTypes from 'prop-types';
 import styles from './EstadoEmpleadosGerentes.module.css';
 import EstadoEmpleadosGerentesService from '../../services/EstadoEmpleadosGerentesService';
 
+// Iconos
+import faSquarePollVertical from '@fortawesome/fontawesome-svg-core';
+
 const EstadoEmpleadosGerentes = (props) => {
 
   const location = useLocation();
+  const [losEmpleados, setLosEmpleados] = useState([]);
+
 
   useEffect(() => {
-      
+    EstadoEmpleadosGerentesService.getEmpleados()
   });
 
   return (
