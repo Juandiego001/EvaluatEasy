@@ -13,7 +13,7 @@ import HomeOperarios from './pages/HomeOperarios/HomeOperarios';
 
 // Diferentes secciones (Gerentes)
 import ConfiguracionGerentes from './pages/ConfiguracionGerentes/ConfiguracionGerentes';
-
+import EstadoEmpleadosGerentes from './pages/EstadoEmpleadosGerentes/EstadoEmpleadosGerentes';
 
 const App=() => {
   return (

@@ -59,3 +59,37 @@ exports.postUsuarios = (connection, req, res) => {
 
 
 }
+
+exports.putUsuarios = (connection, req, res) => {
+    let nombres = req.body.nombres;
+    let apellidos = req.body.apellidos;
+    let correoActual = req.body.correo;
+    let nuevoCorreo = req.body.nuevoCorreo;
+    let contrasena = req.body.contrasena;
+    
+    connection.query('UPDATE USUARIOS SET nombres = ?, apellidos = ?, correo = ?, contrasena = ? WHERE correo = ?', 
+    [nombres, apellidos, nuevoCorreo, contrasena, correoActual],
+    (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Ocurrió un error');
+        } else {
+            // True para indicar que el usuario se ha actualizado con éxito
+            res.status(200).send(true);
+        }
+    })
+}
+
+exports.getContrasena = (connection, req, res) => {
+    let correo = req.query.correo;
+
+    connection.query('SELECT contrasena FROM USUARIOS WHERE correo = ?', [
+        correo
+    ], (err, results, fields) => {
+        if (err) {
+            res.status(500).send('Ocurrió un error');
+        } else {
+            res.status(200).send(results);
+        }
+    })
+}
