@@ -36,18 +36,20 @@ exports.logIn = (connection, req, res) => {
 
 exports.postUsuarios = (connection, req, res) => {
 
+    
     console.log(req);
 
+    let correo = req.body.correo;
+    let contrasena = req.body.contrasena;
     let nombres = req.body.nombres;
     let apellidos = req.body.apellidos;
     let cargo = req.body.cargo;
-    let correo = req.body.correo;
+    let tipo = req.body.tipo;
     let telefono = req.body.telefono;
-    let contrasena = '123';
-    let tipo = 3;
+    
 
-    connection.query('INSERT INTO USUARIOS VALUES(?, ?, ?, ?, ?, ?)', [
-            correo, contrasena, nombres, apellidos, cargo, tipo
+    connection.query('INSERT INTO USUARIOS VALUES(?, ?, ?, ?, ?, ?, ?)', [
+            correo, contrasena, nombres, apellidos, cargo, tipo, telefono
         ], (error, resultados, campos) => {
             if (error) {
                 console.log(error);
