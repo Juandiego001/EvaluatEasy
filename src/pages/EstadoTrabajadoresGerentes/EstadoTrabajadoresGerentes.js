@@ -111,7 +111,7 @@ const EstadoTrabajadoresGerentes = (props) => {
 
                       <Col>
                         <div className={styles.Estado5 + " " + "rounded-5"}>
-                          <span className={trabajador.estado == 5 ? styles.visibleTrue + " " + "fs-3 fw-bold" : styles.visibleFalse}>5</span>
+                          <span className={trabajador.estado == 5 ? styles.visibleTrue + " " + "fs-3 fw-bold w-50" : styles.visibleFalse}>5</span>
                         </div>
                       </Col>
                     </Row>
@@ -123,7 +123,7 @@ const EstadoTrabajadoresGerentes = (props) => {
                         : 
                         
                         trabajador.estado == 2 ?
-                          <span className="text-break bg-primary text-light">
+                          <span className="text-break bg-primary text-light w-50 text-center rounded-1">
                             Evaluación asignada
                             </span>
                         :
@@ -133,11 +133,11 @@ const EstadoTrabajadoresGerentes = (props) => {
                         :
                         
                         trabajador.estado == 4 ?
-                          <span className="text-break bg-primary text-light">Coevaluación asignada</span>
+                          <span className="text-break bg-primary text-light w-50 text-center rounded-1">Coevaluación asignada</span>
                         :
 
                         trabajador.estado == 5 ?  
-                          <span className="text-break bg-primary text-light">Proceso completado</span>
+                          <span className="text-break bg-primary text-light w-50 text-center rounded-1">Proceso completado</span>
                         :
                         ''
                       }

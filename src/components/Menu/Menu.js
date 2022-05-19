@@ -41,6 +41,7 @@ const Menu = (props) => {
                     <NavLink className="nav-link active text-white" to="/evaluaciones">Evaluaciones</NavLink>
                     <NavLink className="nav-link active text-white" to="/estado-trabajadores-gerentes">Estado trabajadores</NavLink>
                     <NavLink className="nav-link active text-white" to="/configuracion-gerentes">Configuración</NavLink>
+                    <NavLink className="nav-link active text-white" to="/">Cerrar sesión</NavLink>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -68,6 +69,7 @@ const Menu = (props) => {
                     <NavLink className="nav-link active text-white" to="/evaluaciones-trabajadores">Evaluación</NavLink>
                     <NavLink className="nav-link active text-white" to="/coevaluaciones-trabajadores">Coevaluación</NavLink>
                     <NavLink className="nav-link active text-white" to="/configuracion-trabajadores">Configuración</NavLink>
+                    <NavLink className="nav-link active text-white" to="/">Cerrar sesión</NavLink>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

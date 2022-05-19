@@ -203,6 +203,8 @@ class Trabajadores extends React.Component {
             losTrabajadores: nuevoLosTrabajadores
           });
 
+          this.cerrarModalCrear();
+
         })
         .catch(error => {
           alert('Ocurrió un error al intentar crear un usuario');
