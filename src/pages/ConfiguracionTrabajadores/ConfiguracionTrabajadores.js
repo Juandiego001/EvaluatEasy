@@ -86,7 +86,7 @@ const ConfiguracionTrabajadores = (props) => {
 
   function putUsuarios() {
     let correoActual = cookies.correo;
-    UsuariosService.putUsuarios(nombres, apellidos, correoActual, correo, contrasena)
+    UsuariosService.putUsuarios(correoActual, correo, contrasena, nombres, apellidos)
       .then(datos => {
         setCookies('correo', correo, { path: '/' });
         setCookies('nombres', nombres, { path: '/' });

@@ -35,31 +35,25 @@ exports.logIn = (connection, req, res) => {
 }
 
 exports.postUsuarios = (connection, req, res) => {
-
-    
-    console.log(req);
-
     let correo = req.body.correo;
     let contrasena = req.body.contrasena;
     let nombres = req.body.nombres;
     let apellidos = req.body.apellidos;
     let cargo = req.body.cargo;
     let tipo = req.body.tipo;
-    let telefono = req.body.telefono;
     
 
-    connection.query('INSERT INTO USUARIOS VALUES(?, ?, ?, ?, ?, ?, ?)', [
-            correo, contrasena, nombres, apellidos, cargo, tipo, telefono
-        ], (error, resultados, campos) => {
-            if (error) {
-                console.log(error);
+    connection.query('INSERT INTO USUARIOS(correo, contrasena, nombres, apellidos, cargo, tipo) ' +
+        'VALUES(?, ?, ?, ?, ?, ?)', [
+            correo, contrasena, nombres, apellidos, cargo, tipo
+        ], (err, results, fields) => {
+            if (err) {
+                console.log(err);
                 res.status(500).send('Ocurrió un error');
             } else {
-                res.status(200).send({creacion: true});
+                res.status(200).send(results);
             }
     })
-
-
 }
 
 exports.putUsuarios = (connection, req, res) => {
@@ -78,6 +72,19 @@ exports.putUsuarios = (connection, req, res) => {
         } else {
             // True para indicar que el usuario se ha actualizado con éxito
             res.status(200).send(true);
+        }
+    })
+}
+
+exports.deleteUsuarios = (connection, req, res) => {
+    let correo = req.query.correo;
+
+    connection.query('DELETE FROM USUARIOS WHERE correo = ?', [correo], (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Ocurrió un error al intentar eliminar el usuario.');
+        } else {
+            res.status(200).send(results);
         }
     })
 }
@@ -106,7 +113,30 @@ exports.getTrabajadores = (connection, req, res) => {
             console.log(err);
             res.status(500).send('Ocurrió un error al intentar obtener todos los usuarios trabajadores');
         } else {
-            res.status(200).send(results);
+            let correosArreglados = [];
+
+            for (let i = 0; i < results.length; i++) {
+                let correo = {
+                    original: results[i].correo,
+                    nuevo: results[i].correo
+                };
+                let contrasena = results[i].contrasena;
+                let nombres = results[i].nombres;
+                let apellidos = results[i].apellidos;
+                let cargo = results[i].cargo;
+                let tipo = results[i].tipo;
+
+                correosArreglados.push({
+                    correo,
+                    contrasena,
+                    nombres,
+                    apellidos,
+                    cargo,
+                    tipo
+                });
+            }
+
+            res.status(200).send(correosArreglados);
         }
     })
 }
@@ -131,4 +161,25 @@ exports.postTrabajadores = (connection, req, res) => {
             }
         }
     )
+}
+
+exports.putTrabajadores = (connection, req, res) => {
+    let correo = req.body.correo;
+    let nuevoCorreo = req.body.nuevoCorreo;
+    let contrasena = req.body.contrasena;
+    let nombres = req.body.nombres;
+    let apellidos = req.body.apellidos;
+    let cargo = req.body.cargo;
+    let tipo = req.body.tipo;
+
+    connection.query('UPDATE USUARIOS SET correo = ?, contrasena = ?, nombres = ?, apellidos = ?, cargo = ?,' +
+    'tipo = ? WHERE correo = ? ', [
+        nuevoCorreo, contrasena, nombres, apellidos, cargo, tipo, correo
+    ], (err, results, fields) => {
+        if (err) {
+            res.status(500).send('Ocurrió un error al intentar actualizar los trabajadores.');
+        } else {
+            res.status(200).send(results);
+        }
+    })
 }

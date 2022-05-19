@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
+<diagram program="umlet" version="15.0.0">
   <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>456</x>
-      <y>16</y>
+      <y>24</y>
       <w>184</w>
       <h>120</h>
     </coordinates>
@@ -22,7 +22,7 @@ fechaFinalizacion: Date [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>136</x>
-      <y>176</y>
+      <y>184</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -30,12 +30,10 @@ fechaFinalizacion: Date [0..1]
 --
 &lt;&lt;Pk&gt;&gt; correo: texto
 contrasena: texto
-nombre: texto
-apellido: texto
+nombres: texto
+apellidos: texto
 cargo: texto [0..1]
 tipo: numerico
-telefono: numerico
-verificarInicio: booleano
 estado: numerico [0..1]
 --
 </panel_attributes>
@@ -45,7 +43,7 @@ estado: numerico [0..1]
     <id>UMLClass</id>
     <coordinates>
       <x>456</x>
-      <y>216</y>
+      <y>224</y>
       <w>168</w>
       <h>96</h>
     </coordinates>
@@ -62,7 +60,7 @@ fechaFinalizacion: Date
     <id>UMLClass</id>
     <coordinates>
       <x>736</x>
-      <y>216</y>
+      <y>224</y>
       <w>168</w>
       <h>96</h>
     </coordinates>
@@ -79,7 +77,7 @@ descripcion: texto
     <id>UMLClass</id>
     <coordinates>
       <x>728</x>
-      <y>392</y>
+      <y>400</y>
       <w>168</w>
       <h>104</h>
     </coordinates>
@@ -95,7 +93,7 @@ letra: caracter [0..1]
     <id>Relation</id>
     <coordinates>
       <x>296</x>
-      <y>224</y>
+      <y>232</y>
       <w>176</w>
       <h>40</h>
     </coordinates>
@@ -109,7 +107,7 @@ crea</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>296</x>
-      <y>272</y>
+      <y>280</y>
       <w>176</w>
       <h>40</h>
     </coordinates>
@@ -123,13 +121,13 @@ responde</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>248</x>
-      <y>56</y>
+      <y>64</y>
       <w>224</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
-m2=2
+m2=1
 realiza</panel_attributes>
     <additional_attributes>260.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
   </element>
@@ -137,7 +135,7 @@ realiza</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>808</x>
-      <y>304</y>
+      <y>312</y>
       <w>64</w>
       <h>104</h>
     </coordinates>
@@ -151,7 +149,7 @@ contiene</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>32</x>
-      <y>440</y>
+      <y>448</y>
       <w>392</w>
       <h>248</h>
     </coordinates>
@@ -184,7 +182,7 @@ fg=white
     <id>Relation</id>
     <coordinates>
       <x>616</x>
-      <y>248</y>
+      <y>256</y>
       <w>136</w>
       <h>40</h>
     </coordinates>
@@ -198,7 +196,7 @@ se efectua para</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>608</x>
-      <y>520</y>
+      <y>528</y>
       <w>392</w>
       <h>88</h>
     </coordinates>
@@ -217,7 +215,7 @@ fg=white
     <id>Relation</id>
     <coordinates>
       <x>528</x>
-      <y>128</y>
+      <y>136</y>
       <w>104</w>
       <h>104</h>
     </coordinates>
@@ -231,7 +229,7 @@ se efectua sobre</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>752</x>
-      <y>32</y>
+      <y>40</y>
       <w>168</w>
       <h>104</h>
     </coordinates>
@@ -248,7 +246,7 @@ deGerente: caracter [0..1]
     <id>Relation</id>
     <coordinates>
       <x>808</x>
-      <y>128</y>
+      <y>136</y>
       <w>64</w>
       <h>104</h>
     </coordinates>
@@ -257,5 +255,19 @@ m1=0..*
 m2=1
 contiene</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>24</y>
+      <w>280</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=1
+crea</panel_attributes>
+    <additional_attributes>330.0;20.0;10.0;20.0;10.0;200.0</additional_attributes>
   </element>
 </diagram>

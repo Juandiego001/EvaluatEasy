@@ -16,6 +16,11 @@ module.exports = (app, connection) => {
         .put((req, res) => {
             cUsuarios.putUsuarios(connection, req, res);
         })
+
+        // Sirve para eliminar trabajadores también
+        .delete((req, res) => {
+            cUsuarios.deleteUsuarios(connection, req, res);
+        })
     
 
     app.route('/usuarios-contrasena')
@@ -36,6 +41,11 @@ module.exports = (app, connection) => {
         // Crear un usuario trabajador
         .post((req, res) => {
             cUsuarios.postTrabajadores(connection, req, res);
+        })
+
+        // Actualuzar un usuario trabajador
+        .put((req, res) => {
+            cUsuarios.putTrabajadores(connection, req, res);
         })
 
 }
