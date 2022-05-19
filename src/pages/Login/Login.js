@@ -36,6 +36,7 @@ const Login = (props) => {
           let nombres = datos.data.nombres;
           let apellidos = datos.data.apellidos;
           let tipo = datos.data.tipo;
+          let estado = datos.data.estado;
           
           setCookies('correo', correo, {
             path: '/'
@@ -50,6 +51,10 @@ const Login = (props) => {
           });
 
           setCookies('tipo', tipo, {
+            path: '/'
+          });
+
+          setCookies('estado', estado, {
             path: '/'
           });
 

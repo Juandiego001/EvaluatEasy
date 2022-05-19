@@ -7,6 +7,7 @@ import Menu from '../../components/Menu/Menu';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 // Cookies
 import { useCookies } from 'react-cookie';
@@ -14,7 +15,7 @@ import { useCookies } from 'react-cookie';
 
 const EvaluacionesTrabajadores = (props) => {
 
-
+  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos']);
 
   return (
     <Container className="p-0" fluid>
@@ -94,6 +95,14 @@ const EvaluacionesTrabajadores = (props) => {
           </Col>
         </Row>
       </Container>
+
+      <Row className="w-100 justify-content-center m-0">
+        <Button as="input" value="Iniciar evaluación" className="text-capitalize w-25"/>
+      </Row>
+
+      <Row className="w-100 justify-content-center m-0 text-center bg-secondary">
+        <h4 className="text-light">Aún no se te ha asignado una evaluación o coevaluación</h4>
+      </Row>
 
     </Container>
   )

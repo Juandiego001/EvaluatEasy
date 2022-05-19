@@ -15,7 +15,7 @@ import { useCookies } from 'react-cookie';
 
 const Menu = (props) => {
 
-  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'tipo']);
+  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'tipo', 'estado']);
 
   return (
 
