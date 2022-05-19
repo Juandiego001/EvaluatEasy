@@ -32,6 +32,7 @@ const Menu = (props) => {
                   <NavLink className="nav-link active text-white" aria-current="page" to="/home-gerentes">Dashboard</NavLink>
                   <NavLink className="nav-link active text-white" to="/trabajadores">Trabajadores</NavLink>
                   <NavLink className="nav-link active text-white" to="/evaluaciones">Evaluaciones</NavLink>
+                  <NavLink className="nav-link active text-white" to="/estado-trabajadores-gerentes">Estado trabajadores</NavLink>
                   <NavLink className="nav-link active text-white" to="/configuracion-gerentes">Configuración</NavLink>
               </Nav>
             </Offcanvas.Body>

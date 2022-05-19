@@ -15,6 +15,9 @@ CREATE TABLE USUARIOS(
     estado INTEGER NULL
 );
 
+-- Si no quieren crear de nuevo todas las tablas, a continuación algunos ALTER TABLE que programé
+ALTER TABLE USUARIOS MODIFY COLUMN estado INTEGER NULL DEFAULT 1; 
+
 -- Inserción de un usuario GERENTE
 INSERT INTO USUARIOS VALUES('gerente@hotmail.com', '123', 'prueba 1', 'prueba 1', 'prueba1', 1);
 

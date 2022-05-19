@@ -89,9 +89,46 @@ exports.getContrasena = (connection, req, res) => {
         correo
     ], (err, results, fields) => {
         if (err) {
+            console.log(err);
             res.status(500).send('Ocurrió un error');
         } else {
             res.status(200).send(results);
         }
     })
+
+}
+
+// Obtener todos los trabajadores
+exports.getTrabajadores = (connection, req, res) => {
+    connection.query('SELECT * FROM USUARIOS WHERE tipo = 3', 
+    (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Ocurrió un error al intentar obtener todos los usuarios trabajadores');
+        } else {
+            res.status(200).send(results);
+        }
+    })
+}
+
+exports.postTrabajadores = (connection, req, res) => {
+
+    let correo = req.body.correo;
+    let contrasena = req.body.contrasena;
+    let nombres = req.body.nombres;
+    let apellidos = req.body.apellidos;
+    let cargo = req.body.cargo;
+    let tipo = 3;
+
+    connection.query('INSERT INTO USUARIOS(correo, contrasena, nombres, apellidos, cargo, tipo) VALUES(?, ?, ?, ?, ?, ?)', 
+        [correo, contrasena, nombres, apellidos, cargo, tipo], 
+        (err, results, fields) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send('Ocurrió un error al intentar insertar los usuarios trabajadores');
+            } else {
+                res.status(200).send(results);
+            }
+        }
+    )
 }

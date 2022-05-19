@@ -12,7 +12,7 @@ const rUsuarios = require('./routes/usuarios.routes.js');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'masterkey',
+    password: 'mysql',
     database: 'evaluateasy'
 });
 

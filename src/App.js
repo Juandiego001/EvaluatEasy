@@ -7,13 +7,12 @@ import Evaluaciones from './pages/Evaluaciones/Evaluaciones.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Homes
-import HomeGerentes from './pages/HomeGerentes/HomeGerentes';
 import HomeAuxiliar from './pages/HomeAuxiliar/HomeAuxiliar';
 import HomeOperarios from './pages/HomeOperarios/HomeOperarios';
 
 // Diferentes secciones (Gerentes)
 import ConfiguracionGerentes from './pages/ConfiguracionGerentes/ConfiguracionGerentes';
-import EstadoEmpleadosGerentes from './pages/EstadoEmpleadosGerentes/EstadoEmpleadosGerentes';
+import EstadoTrabajadoresGerentes from './pages/EstadoTrabajadoresGerentes/EstadoTrabajadoresGerentes';
 
 const App=() => {
   return (
@@ -26,7 +25,7 @@ const App=() => {
         <Route path="/trabajadores" element={<Trabajadores />} />
         <Route path="/configuracion-gerentes" element={<ConfiguracionGerentes />} />
         <Route path="/evaluaciones" element={<Evaluaciones></Evaluaciones>} />
-        <Route path="/estado-empleados-gerentes" element={<EstadoEmpleadosGerentes />} />
+        <Route path="/estado-trabajadores-gerentes" element={<EstadoTrabajadoresGerentes />} />
 
         {/* Homes */}
         <Route path="/home-auxiliar" element={<HomeAuxiliar />} />

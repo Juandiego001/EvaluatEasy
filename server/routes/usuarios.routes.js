@@ -23,7 +23,19 @@ module.exports = (app, connection) => {
         // Obtener contrasena
         .get((req, res) => {
             cUsuarios.getContrasena(connection, req, res);
-        })
+        });
+
     
+    app.route('/usuarios-trabajadores')
+
+        // Obtener todos los trabjadores
+        .get((req, res) => {
+            cUsuarios.getTrabajadores(connection, req, res);
+        })
+        
+        // Crear un usuario trabajador
+        .post((req, res) => {
+            cUsuarios.postTrabajadores(connection, req, res);
+        })
 
 }

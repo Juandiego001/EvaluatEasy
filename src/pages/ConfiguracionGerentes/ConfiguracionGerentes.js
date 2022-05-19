@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './ConfiguracionGerentes.module.css';
 
@@ -20,6 +20,9 @@ import { useCookies } from 'react-cookie';
 
 const ConfiguracionGerentes = (props) => {
 
+  // React router dom
+  const navigate = useNavigate();
+
   const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'contrasena']);
   const [nombres, setNombres] = useState('Angela María');
   const [apellidos, setApellidos] = useState('Madriñan Cabal');
@@ -28,10 +31,21 @@ const ConfiguracionGerentes = (props) => {
 
   // Estado para mostrar alertas de React-Bootstrap
   const [showModal, setShowModal] = useState(false);
+  const [showModalError, setShowModalError] = useState(false);
+  const [showModalExito, setShowModalExito] = useState(false);
 
   function handleShowModal() {
     setShowModal(!showModal);
   }
+
+  function handleShowModalError() {
+    setShowModalError(!showModalError);
+  }
+
+  function handleShowModalExito() {
+    setShowModalExito(!showModalExito);
+  }
+
 
   function handleNombres(e) {
     setNombres(e.target.value);
@@ -50,6 +64,11 @@ const ConfiguracionGerentes = (props) => {
   }
 
   useEffect(() => {
+    // El usuario es redirigido al inicio ya que no ha iniciado sesión
+    if (cookies.correo == undefined) {
+      navigate("/");
+    }
+
     let correo = cookies.correo;
     setNombres(cookies.nombres);
     setApellidos(cookies.apellidos);
@@ -57,9 +76,10 @@ const ConfiguracionGerentes = (props) => {
 
     UsuariosService.getContrasena(correo)
       .then(datos => {
-        setContrasena(datos.data[0].contrasena);
+        if (datos.data.length > 0) setContrasena(datos.data[0].contrasena);
       })
       .catch(err => {
+        
         setShowModal(true);
       })
 
@@ -69,10 +89,13 @@ const ConfiguracionGerentes = (props) => {
     let correoActual = cookies.correo;
     UsuariosService.putUsuarios(nombres, apellidos, correoActual, correo, contrasena)
       .then(datos => {
-        alert('El usuario se ha actualizado con éxito');
+        setCookies('correo', correo, { path: '/' });
+        setCookies('nombres', nombres, { path: '/' });
+        setCookies('apellidos', apellidos, { path: '/' });
+        setShowModalExito(true);
       })
       .catch(err => {
-        alert('Ocurrió un error al intentar actualizar los datos.');
+        setShowModalError(true);
       })
   }
 
@@ -131,6 +154,8 @@ const ConfiguracionGerentes = (props) => {
         </Row>
       </Container>
 
+        {/* Modals */}
+        {/* Modal para mostrar que ocurrió un error al intentar obtener los datos para ser actualizados */}
         <Modal show={showModal} onHide={handleShowModal}>
             <Modal.Header closeButton>
               <Modal.Title>Error</Modal.Title>
@@ -139,7 +164,28 @@ const ConfiguracionGerentes = (props) => {
             <Modal.Body>
               <p>Ocurrió un error al intentar obtener los datos para ser actualizados.</p>
             </Modal.Body>
-            
+        </Modal>
+
+        {/* Modal para mostrar que ocurrió un error al intentar actualizar los datos */}
+        <Modal show={showModalError} onHide={handleShowModalError}>
+            <Modal.Header closeButton>
+              <Modal.Title>Error</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+              <p>Ocurrió un error al intentar actualizar los datos.</p>
+            </Modal.Body>
+        </Modal>
+
+        {/* Modal para informar que los datos han sido actualizados con éxito */}
+        <Modal show={showModalExito} onHide={handleShowModalExito}>
+            <Modal.Header closeButton>
+              <Modal.Title>Éxito</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+              <p>¡Los datos han sido actualizados con éxito!</p>
+            </Modal.Body>
         </Modal>
     </Container>
   )};
