@@ -8,7 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Homes
 import HomeAuxiliar from './pages/HomeAuxiliar/HomeAuxiliar';
-import HomeOperarios from './pages/HomeOperarios/HomeOperarios';
+import HomeTrabajadores from './pages/HomeTrabajadores/HomeTrabajadores';
 
 // Diferentes secciones (Gerentes)
 import ConfiguracionGerentes from './pages/ConfiguracionGerentes/ConfiguracionGerentes';
@@ -29,7 +29,7 @@ const App=() => {
 
         {/* Homes */}
         <Route path="/home-auxiliar" element={<HomeAuxiliar />} />
-        <Route path="/home-operarios" element={<HomeOperarios />} />
+        <Route path="/home-trabajadores" element={<HomeTrabajadores />} />
       </Routes>
     </BrowserRouter>
   );

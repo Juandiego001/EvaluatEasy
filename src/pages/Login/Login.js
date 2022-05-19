@@ -49,36 +49,21 @@ const Login = (props) => {
             path: '/'
           });
 
+          setCookies('tipo', tipo, {
+            path: '/'
+          });
+
           switch(tipo) {
             case 1:
-              
-              navigate('/home-gerentes', { 
-                state: 
-                  { 
-                    nombres: nombres,
-                    apellidos: apellidos
-                  }
-                });
+              navigate('/home-gerentes');
               break;
 
               case 2:
-                navigate('/home-auxiliar', { 
-                  state: 
-                    { 
-                      nombres: nombres,
-                      apellidos: apellidos
-                    }
-                  });
+                navigate('/home-auxiliar');
                 break;
               
               case 3:
-                navigate('/trabajadores', { 
-                  state: 
-                    { 
-                      nombres: nombres,
-                      apellidos: apellidos
-                    }
-                  });
+                navigate('/home-trabajadores');
                 break;
           }
 

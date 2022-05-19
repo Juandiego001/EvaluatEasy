@@ -23,7 +23,7 @@ const ConfiguracionGerentes = (props) => {
   // React router dom
   const navigate = useNavigate();
 
-  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'contrasena']);
+  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'tipo']);
   const [nombres, setNombres] = useState('Angela María');
   const [apellidos, setApellidos] = useState('Madriñan Cabal');
   const [correo, setCorreo] = useState('angela@hotmail.com');
@@ -79,7 +79,7 @@ const ConfiguracionGerentes = (props) => {
         if (datos.data.length > 0) setContrasena(datos.data[0].contrasena);
       })
       .catch(err => {
-        
+        console.log(err);
         setShowModal(true);
       })
 
