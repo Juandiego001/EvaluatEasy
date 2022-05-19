@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './HomeTrabajadores.module.css';
 import Menu from '../../components/Menu/Menu';
@@ -19,7 +20,16 @@ import { useCookies } from 'react-cookie';
 
 const HomeTrabajadores = (props) => {
 
+  const navigate = useNavigate();
   const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos']);
+
+  function irEvaluacion() {
+    navigate('/evaluaciones-trabajadores');
+  }
+
+  function irConfiguracion() {
+    navigate('/configuracion-trabajadores');
+  }
 
   return (
     <Container className="px-0" fluid>
@@ -28,7 +38,7 @@ const HomeTrabajadores = (props) => {
       <Container fluid>
         <Row>
           <Col className="text-center col-md-6 p-5">
-            <Button variant="outline-success" size="lg" className="text-capitalize">
+            <Button variant="outline-success" size="lg" className="text-capitalize" onClick={irEvaluacion}>
               {/* Contenedor para mostrar la opción de dirigirse a las evaluaciones asignadas */}
               <div>
                 <FontAwesomeIcon className="display-1" icon={faMagnifyingGlassChart} />

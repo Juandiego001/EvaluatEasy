@@ -65,8 +65,8 @@ const Menu = (props) => {
               <Offcanvas.Body className="bg-primary text-white">
                 <Nav className="justify-content-end flex-grow-1 pe-3 text-white">
                     <NavLink className="nav-link active text-white" aria-current="page" to="/home-trabajadores">Inicio</NavLink>
-                    <NavLink className="nav-link active text-white" to="/evaluacion">Evaluación</NavLink>
-                    <NavLink className="nav-link active text-white" to="/coevaluacion">Coevaluación</NavLink>
+                    <NavLink className="nav-link active text-white" to="/evaluaciones-trabajadores">Evaluación</NavLink>
+                    <NavLink className="nav-link active text-white" to="/coevaluaciones-trabajadores">Coevaluación</NavLink>
                     <NavLink className="nav-link active text-white" to="/configuracion-trabajadores">Configuración</NavLink>
                 </Nav>
               </Offcanvas.Body>

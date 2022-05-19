@@ -1,0 +1,23 @@
+.EscalaA {
+    background-color: #CA6702;
+}
+
+.EscalaB {
+    background-color: #BB3E03;
+}
+
+.EscalaC {
+    background-color: #AE2012;
+}
+
+.EscalaD {
+    background-color: #9B2226;
+}
+
+.EscalaA, .EscalaB, .EscalaC, .EscalaD {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
