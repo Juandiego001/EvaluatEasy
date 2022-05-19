@@ -240,6 +240,9 @@ const Evaluaciones = () => {
                 <MDBInput type="textarea" />
                 </div>
               </div>
+              <div className="card-footer">
+                <button color="primary" type="submit">Guardar</button>
+                </div>
             </Fragment>
           </div>
         </div>
