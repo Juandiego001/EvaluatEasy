@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>477</x>
+      <y>27</y>
+      <w>189</w>
+      <h>171</h>
+=======
+<diagram program="umlet" version="15.0.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>0</y>
+      <x>620</x>
+      <y>80</y>
       <w>210</w>
       <h>190</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Coevaluacion
 --
@@ -19,10 +31,17 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>100</x>
-      <y>170</y>
+<<<<<<< HEAD
+      <x>117</x>
+      <y>180</y>
+      <w>189</w>
+      <h>171</h>
+=======
+      <x>220</x>
+      <y>250</y>
       <w>210</w>
       <h>190</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -34,6 +53,7 @@ cargo: texto [0..1]
 tipo: numerico
 telefono: numerico
 verificarInicio: booleano
+estado: numerico [0..1]
 --
 </panel_attributes>
     <additional_attributes/>
@@ -41,10 +61,17 @@ verificarInicio: booleano
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>220</y>
+<<<<<<< HEAD
+      <x>477</x>
+      <y>225</y>
+      <w>189</w>
+      <h>108</h>
+=======
+      <x>620</x>
+      <y>300</y>
       <w>210</w>
       <h>120</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Evaluacion
 --
@@ -56,10 +83,17 @@ verificarInicio: booleano
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>500</x>
-      <y>440</y>
+<<<<<<< HEAD
+      <x>477</x>
+      <y>423</y>
+      <w>189</w>
+      <h>117</h>
+=======
+      <x>620</x>
+      <y>520</y>
       <w>210</w>
       <h>130</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Valoracion
 --
@@ -72,10 +106,17 @@ letra: caracter [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>240</y>
+<<<<<<< HEAD
+      <x>684</x>
+      <y>243</y>
+      <w>189</w>
+      <h>108</h>
+=======
+      <x>850</x>
+      <y>320</y>
       <w>210</w>
       <h>120</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Competencia
 --
@@ -87,10 +128,17 @@ letra: caracter [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>730</x>
-      <y>410</y>
+<<<<<<< HEAD
+      <x>684</x>
+      <y>396</y>
+      <w>189</w>
+      <h>117</h>
+=======
+      <x>850</x>
+      <y>490</y>
       <w>210</w>
       <h>130</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>Escala
 --
@@ -103,10 +151,17 @@ letra:caracter
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>230</y>
+<<<<<<< HEAD
+      <x>297</x>
+      <y>234</y>
+      <w>198</w>
+      <h>45</h>
+=======
+      <x>420</x>
+      <y>310</y>
       <w>220</w>
       <h>50</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -117,10 +172,17 @@ crea</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>290</y>
+<<<<<<< HEAD
+      <x>297</x>
+      <y>288</y>
+      <w>198</w>
+      <h>45</h>
+=======
+      <x>420</x>
+      <y>370</y>
       <w>220</w>
       <h>50</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -131,10 +193,17 @@ responde</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>50</y>
+<<<<<<< HEAD
+      <x>243</x>
+      <y>72</y>
+      <w>252</w>
+      <h>126</h>
+=======
+      <x>360</x>
+      <y>130</y>
       <w>280</w>
       <h>140</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -145,10 +214,17 @@ realiza</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>580</x>
-      <y>330</y>
+<<<<<<< HEAD
+      <x>549</x>
+      <y>324</y>
+      <w>63</w>
+      <h>117</h>
+=======
+      <x>700</x>
+      <y>410</y>
       <w>70</w>
       <h>130</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -159,19 +235,41 @@ realiza</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>20</x>
-      <y>630</y>
+<<<<<<< HEAD
+      <x>27</x>
+      <y>378</y>
+      <w>369</w>
+      <h>189</h>
+=======
+      <x>90</x>
+      <y>610</y>
       <w>490</w>
-      <h>210</h>
+      <h>310</h>
+>>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
     </coordinates>
     <panel_attributes>*Notas.*
 
-1. tipo en Usuarios es un atributo que permite identificar el tipo de usuario.
+1. tipo en Usuarios es un atributo que permite identificar el 
+tipo de usuario.
 1 --&gt; Gerente.
 2 --&gt; Auxiliar administrativo.
 3 --&gt; Operario.
+
+2. estado en Usuarios es una tributo que permite identificar el estado del
+usuario, es decir, si ya se realizó la asignación de la evaluación, la
+evaluación, si ya se asignó la coevaluación y si ya realizó la coevaluación.
+1 -&gt; No se ha asignado la evaluación
+2 -&gt; Se asignó la evaluación pero no se ha realizado
+3 -&gt; Se realizó la evaluación y no se ha asignado la coevaluación
+4 -&gt; Se asignó la coevaluación y no se ha realizado
+5 -&gt; Se realizó la coevaluación
+También cabe aclarar que el estado es propio de los empleados, por lo tanto
+si el tipo es 3, entonces se le asignará un estado al momento de crearse, de
+lo contrario, sencillamente estará vacío.
 bg=blue
-fg=white</panel_attributes>
+fg=white
+
+</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

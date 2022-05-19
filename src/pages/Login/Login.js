@@ -6,8 +6,12 @@ import { useNavigate } from 'react-router-dom';
 // Services
 import UsuariosService from '../../services/UsuariosService/UsuariosService.js';
 
+// Para cookies
+import { useCookies } from 'react-cookie';
+
 const Login = (props) => {
 
+  const [cookies, setCookies] = useCookies(['nombres', 'apellidos', 'tipo']);
   const[correo, setCorreo] = useState();
   const[contrasena, setContrasena] = useState();
 
@@ -27,15 +31,27 @@ const Login = (props) => {
 
     UsuariosService.logIn(correo, contrasena)
       .then((datos) => {
-        console.log(datos.data);
 
         if (datos.data.login) {
           let nombres = datos.data.nombres;
           let apellidos = datos.data.apellidos;
           let tipo = datos.data.tipo;
+          
+          setCookies('correo', correo, {
+            path: '/'
+          });
+
+          setCookies('nombres', nombres, {
+            path: '/'
+          });
+
+          setCookies('apellidos', apellidos, {
+            path: '/'
+          });
 
           switch(tipo) {
             case 1:
+              
               navigate('/home-gerentes', { 
                 state: 
                   { 
