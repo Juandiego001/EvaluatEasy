@@ -46,6 +46,13 @@ module.exports = (app, connection) => {
         // Actualuzar un usuario trabajador
         .put((req, res) => {
             cUsuarios.putTrabajadores(connection, req, res);
+        });
+
+
+    app.route('/usuarios-trabajadores-estado')
+
+        .put((req, res) => {
+            cUsuarios.putEstadoTrabajadores(connection, req, res);
         })
 
 }

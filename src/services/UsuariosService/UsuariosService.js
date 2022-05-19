@@ -79,6 +79,15 @@ class UsuariosService {
     })
   }
 
+  // Actualiza los estados de los trabajadores
+  async putEstadoTrabajadores(correo, estado) {
+    return await axios.put('http://localhost:3001/usuarios-trabajadores-estado', {
+        correo,
+        estado
+      }
+    )
+  }
+
 }
 
 export default new UsuariosService();

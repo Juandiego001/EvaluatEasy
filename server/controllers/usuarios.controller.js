@@ -125,6 +125,7 @@ exports.getTrabajadores = (connection, req, res) => {
                 let apellidos = results[i].apellidos;
                 let cargo = results[i].cargo;
                 let tipo = results[i].tipo;
+                let estado = results[i].estado;
 
                 correosArreglados.push({
                     correo,
@@ -132,7 +133,8 @@ exports.getTrabajadores = (connection, req, res) => {
                     nombres,
                     apellidos,
                     cargo,
-                    tipo
+                    tipo,
+                    estado
                 });
             }
 
@@ -178,6 +180,21 @@ exports.putTrabajadores = (connection, req, res) => {
     ], (err, results, fields) => {
         if (err) {
             res.status(500).send('Ocurrió un error al intentar actualizar los trabajadores.');
+        } else {
+            res.status(200).send(results);
+        }
+    })
+}
+
+exports.putEstadoTrabajadores = (connection, req, res) => {
+    let correo = req.body.correo;
+    let estado = req.body.estado;
+
+    connection.query('UPDATE USUARIOS SET estado = ? WHERE correo = ?', [
+        estado, correo
+    ], (err, results, fields) => {
+        if (err) {
+            res.status(500).send('Ocurrió un error al intentar actualizar el estado');
         } else {
             res.status(200).send(results);
         }

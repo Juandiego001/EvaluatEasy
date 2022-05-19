@@ -33,7 +33,7 @@ const EstadoTrabajadoresGerentes = (props) => {
     setShowModalNoHay(!showModalNoHay);
   }
 
-  useEffect(() => {
+  const effect = useEffect(() => {
     UsuariosService.getTrabajadores()
       .then(datos => {
         if (datos.data.length > 0) {
@@ -47,6 +47,19 @@ const EstadoTrabajadoresGerentes = (props) => {
         setShowModalErrorObtener(true);
       })
   }, []);
+
+  function actualizarEstado(correo, estado) {
+    UsuariosService.putEstadoTrabajadores(correo, estado)
+      .then(datos => {
+        console.log(datos);
+        alert('¡Los datos del estado han sido actualizados con éxito!');
+        effect();
+      })
+      .catch(err => {
+        console.log(err);
+        alert('Ocurrió un error al intentar actualizar el estado del trabajador.');
+      })
+  }
 
   return (
     <Container className="ps-0 pe-0" fluid>
@@ -106,7 +119,7 @@ const EstadoTrabajadoresGerentes = (props) => {
                     <Row className="justify-content-center">
                       {
                         trabajador.estado == 1 ? 
-                          <Button as="input" type="button" className="text-capitalize w-50" value="Asignar evaluación"  />
+                          <Button as="input" type="button" className="text-capitalize w-50" value="Asignar evaluación"  onClick={() => actualizarEstado(trabajador.correo.original, 2)} />
                         : 
                         
                         trabajador.estado == 2 ?
@@ -116,7 +129,7 @@ const EstadoTrabajadoresGerentes = (props) => {
                         :
                         
                         trabajador.estado == 3 ?
-                          <Button as="input" type="button" className="text-capitalize w-50" value="Asignar coevaluación"  />
+                          <Button as="input" type="button" className="text-capitalize w-50" value="Asignar coevaluación"  onClick={() => actualizarEstado(trabajador.correo.original, 4)}/>
                         :
                         
                         trabajador.estado == 4 ?
