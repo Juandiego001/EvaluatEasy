@@ -48,7 +48,7 @@ const HomeTrabajadores = (props) => {
           </Col>
 
           <Col className="text-center col-md-6 p-5">
-            <Button variant="outline-primary" size="lg" className="text-capitalize">
+            <Button variant="outline-primary" size="lg" className="text-capitalize" onClick={irConfiguracion}>
               {/* Contenedor para mostrar la opción de dirigirse a la configuración de sus datos */}
               <div>
                 <FontAwesomeIcon className="display-1" icon={faSquarePollVertical} />
