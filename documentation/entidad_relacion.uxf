@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<<<<<< HEAD
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>9</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>477</x>
-      <y>27</y>
-      <w>189</w>
-      <h>171</h>
-=======
-<diagram program="umlet" version="15.0.0">
-  <zoom_level>10</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>620</x>
-      <y>80</y>
-      <w>210</w>
-      <h>190</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>456</x>
+      <y>16</y>
+      <w>184</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Coevaluacion
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
+fechaAsignacion: Date
+fechaFinalizacion: Date [0..1]
 --
 </panel_attributes>
     <additional_attributes/>
@@ -31,17 +21,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>117</x>
-      <y>180</y>
-      <w>189</w>
-      <h>171</h>
-=======
-      <x>220</x>
-      <y>250</y>
-      <w>210</w>
-      <h>190</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>136</x>
+      <y>176</y>
+      <w>168</w>
+      <h>152</h>
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -61,21 +44,16 @@ estado: numerico [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>477</x>
-      <y>225</y>
-      <w>189</w>
-      <h>108</h>
-=======
-      <x>620</x>
-      <y>300</y>
-      <w>210</w>
-      <h>120</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>456</x>
+      <y>216</y>
+      <w>168</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Evaluacion
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
+fechaAsignacion: Date
+fechaFinalizacion: Date
 --
 </panel_attributes>
     <additional_attributes/>
@@ -83,17 +61,27 @@ estado: numerico [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>477</x>
-      <y>423</y>
-      <w>189</w>
-      <h>117</h>
-=======
-      <x>620</x>
-      <y>520</y>
-      <w>210</w>
-      <h>130</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>736</x>
+      <y>216</y>
+      <w>168</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Competencia
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+nombre: texto
+descripcion: texto
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>392</y>
+      <w>168</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>Valoracion
 --
@@ -104,64 +92,12 @@ letra: caracter [0..1]
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-<<<<<<< HEAD
-      <x>684</x>
-      <y>243</y>
-      <w>189</w>
-      <h>108</h>
-=======
-      <x>850</x>
-      <y>320</y>
-      <w>210</w>
-      <h>120</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
-    </coordinates>
-    <panel_attributes>Competencia
---
-&lt;&lt;Pk&gt;&gt; id: numerico
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-<<<<<<< HEAD
-      <x>684</x>
-      <y>396</y>
-      <w>189</w>
-      <h>117</h>
-=======
-      <x>850</x>
-      <y>490</y>
-      <w>210</w>
-      <h>130</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
-    </coordinates>
-    <panel_attributes>Escala
---
-&lt;&lt;Pk&gt;&gt; id: numerico
-letra:caracter
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>297</x>
-      <y>234</y>
-      <w>198</w>
-      <h>45</h>
-=======
-      <x>420</x>
-      <y>310</y>
-      <w>220</w>
-      <h>50</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>296</x>
+      <y>224</y>
+      <w>176</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -172,80 +108,52 @@ crea</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>297</x>
-      <y>288</y>
-      <w>198</w>
-      <h>45</h>
-=======
-      <x>420</x>
-      <y>370</y>
-      <w>220</w>
-      <h>50</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>296</x>
+      <y>272</y>
+      <w>176</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
-m2=2
+m2=1
 responde</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>243</x>
-      <y>72</y>
-      <w>252</w>
-      <h>126</h>
-=======
-      <x>360</x>
-      <y>130</y>
-      <w>280</w>
-      <h>140</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>248</x>
+      <y>56</y>
+      <w>224</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
-m2=1
+m2=2
 realiza</panel_attributes>
-    <additional_attributes>260.0;20.0;10.0;20.0;10.0;120.0</additional_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>549</x>
-      <y>324</y>
-      <w>63</w>
-      <h>117</h>
-=======
-      <x>700</x>
-      <y>410</y>
-      <w>70</w>
-      <h>130</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>808</x>
+      <y>304</y>
+      <w>64</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
 m2=1
-realiza</panel_attributes>
+contiene</panel_attributes>
     <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-<<<<<<< HEAD
-      <x>27</x>
-      <y>378</y>
-      <w>369</w>
-      <h>189</h>
-=======
-      <x>90</x>
-      <y>610</y>
-      <w>490</w>
-      <h>310</h>
->>>>>>> db3fe0b90db85c883fe935098e6a14b07c50062c
+      <x>32</x>
+      <y>440</y>
+      <w>392</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>*Notas.*
 
@@ -271,5 +179,83 @@ fg=white
 
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>248</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1
+se efectua para</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>608</x>
+      <y>520</y>
+      <w>392</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>*Notas.*
+
+3. En algunas ocasiones, puede suceder que la evaluación haya sido
+asignada más no ejecutada por lo tanto habrán competencias que no tengan
+una evaluación alguna.
+bg=blue
+fg=white
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>128</y>
+      <w>104</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..1
+m2=1
+se efectua sobre</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>32</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>ValoracionFinal
+--
+&lt;&lt;Pk&gt;&gt; id: numerico
+deTrabajador: caracter [0..1]
+deGerente: caracter [0..1]
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>808</x>
+      <y>128</y>
+      <w>64</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..*
+m2=1
+contiene</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>
