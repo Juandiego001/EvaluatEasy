@@ -7,7 +7,7 @@ exports.logIn = (connection, req, res) => {
     //PTT: Muchachos esto genial para la materia pero como consejo para cuando esten trabajando  nunca lo hagan mantenga esto separado de el fornt por 
     // cuestiones de seguridad y por que son sumamente vulnerables a SQL injection aqui de hecho ya tienen una aplicacion totlamente insegura y en especial 
     // con los datos que se plantea manejar aqui
-    connection.query('SELECT nombres, apellidos, tipo FROM USUARIOS WHERE correo = ? AND contrasena = ?', [
+    connection.query('SELECT * FROM USUARIOS WHERE correo = ? AND contrasena = ?', [
         correo, contrasena
     ], (err, results, fields) => {
         if (err) {
@@ -20,7 +20,8 @@ exports.logIn = (connection, req, res) => {
                         login: true,
                         nombres: results[0].nombres,
                         apellidos: results[0].apellidos,
-                        tipo: results[0].tipo
+                        tipo: results[0].tipo,
+                        estado: results[0].estado
                     }
                 )
             } else {

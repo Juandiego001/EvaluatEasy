@@ -17,6 +17,7 @@ import EstadoTrabajadoresGerentes from './pages/EstadoTrabajadoresGerentes/Estad
 // Diferentes secciones (Trabajadores)
 import ConfiguracionTrabajadores from './pages/ConfiguracionTrabajadores/ConfiguracionTrabajadores';
 import EvaluacionesTrabajadores from './pages/EvaluacionesTrabajadores/EvaluacionesTrabajadores';
+import CompetenciasTrabajadores from './pages/CompetenciasTrabajadores/CompetenciasTrabajadores';
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
         {/* Secciones de Trabajadores */}
         <Route path="/configuracion-trabajadores" element={<ConfiguracionTrabajadores />} />
         <Route path="/evaluaciones-trabajadores" element={<EvaluacionesTrabajadores />} />
+        <Route path="/competencias-trabajadores" element={<CompetenciasTrabajadores />} />
       </Routes>
     </BrowserRouter>
   );

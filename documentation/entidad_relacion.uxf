@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>24</y>
-      <w>184</w>
-      <h>120</h>
+      <x>406</x>
+      <y>105</y>
+      <w>161</w>
+      <h>105</h>
     </coordinates>
     <panel_attributes>Coevaluacion
 --
@@ -21,10 +21,10 @@ fechaFinalizacion: Date [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>136</x>
-      <y>184</y>
-      <w>168</w>
-      <h>152</h>
+      <x>126</x>
+      <y>245</y>
+      <w>147</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -42,16 +42,16 @@ estado: numerico [0..1]
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>456</x>
-      <y>224</y>
-      <w>168</w>
-      <h>96</h>
+      <x>406</x>
+      <y>280</y>
+      <w>147</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Evaluacion
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
 fechaAsignacion: Date
-fechaFinalizacion: Date
+fechaFinalizacion: Date [0..1]
 --
 </panel_attributes>
     <additional_attributes/>
@@ -59,16 +59,20 @@ fechaFinalizacion: Date
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>736</x>
-      <y>224</y>
-      <w>168</w>
-      <h>96</h>
+      <x>651</x>
+      <y>280</y>
+      <w>147</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Competencia
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
 nombre: texto
 descripcion: texto
+letraA: texto
+letraB: texto
+letraC: texto
+letraD: texto
 --
 </panel_attributes>
     <additional_attributes/>
@@ -76,15 +80,16 @@ descripcion: texto
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>400</y>
-      <w>168</w>
-      <h>104</h>
+      <x>644</x>
+      <y>483</y>
+      <w>147</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>Valoracion
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
 letra: caracter [0..1]
+quien: numerico
 --
 </panel_attributes>
     <additional_attributes/>
@@ -92,10 +97,10 @@ letra: caracter [0..1]
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>232</y>
-      <w>176</w>
-      <h>40</h>
+      <x>266</x>
+      <y>287</y>
+      <w>154</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -106,10 +111,10 @@ crea</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>280</y>
-      <w>176</w>
-      <h>40</h>
+      <x>266</x>
+      <y>329</y>
+      <w>154</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -120,10 +125,10 @@ responde</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
-      <y>64</y>
-      <w>224</w>
-      <h>136</h>
+      <x>224</x>
+      <y>140</y>
+      <w>196</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -134,24 +139,24 @@ realiza</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>312</y>
-      <w>64</w>
-      <h>104</h>
+      <x>714</x>
+      <y>385</y>
+      <w>56</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=0..1
+m1=0..2
 m2=1
 contiene</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>32</x>
-      <y>448</y>
-      <w>392</w>
-      <h>248</h>
+      <x>35</x>
+      <y>476</y>
+      <w>343</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes>*Notas.*
 
@@ -181,10 +186,10 @@ fg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>616</x>
-      <y>256</y>
-      <w>136</w>
-      <h>40</h>
+      <x>546</x>
+      <y>308</y>
+      <w>119</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*
@@ -195,16 +200,21 @@ se efectua para</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>608</x>
-      <y>528</y>
-      <w>392</w>
-      <h>88</h>
+      <x>539</x>
+      <y>595</y>
+      <w>343</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>*Notas.*
 
 3. En algunas ocasiones, puede suceder que la evaluación haya sido
 asignada más no ejecutada por lo tanto habrán competencias que no tengan
 una evaluación alguna.
+
+4. Cada competencia tiene dos valoraciones y valoraciones finales.
+Por un lado la valoracion del trabajador y la otra del jefe.
+
+5. El atributo quien 
 bg=blue
 fg=white
 
@@ -214,10 +224,10 @@ fg=white
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>136</y>
-      <w>104</w>
-      <h>104</h>
+      <x>469</x>
+      <y>203</y>
+      <w>91</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1
@@ -228,16 +238,16 @@ se efectua sobre</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>752</x>
-      <y>40</y>
-      <w>168</w>
-      <h>104</h>
+      <x>665</x>
+      <y>119</y>
+      <w>147</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>ValoracionFinal
 --
 &lt;&lt;Pk&gt;&gt; id: numerico
-deTrabajador: caracter [0..1]
-deGerente: caracter [0..1]
+letra: caracter [0..1]
+quien: numerico
 --
 </panel_attributes>
     <additional_attributes/>
@@ -245,13 +255,13 @@ deGerente: caracter [0..1]
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>136</y>
-      <w>64</w>
-      <h>104</h>
+      <x>714</x>
+      <y>203</y>
+      <w>56</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-m1=0..*
+m1=0..2
 m2=1
 contiene</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
@@ -259,10 +269,10 @@ contiene</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>192</x>
-      <y>24</y>
-      <w>280</w>
-      <h>176</h>
+      <x>175</x>
+      <y>105</y>
+      <w>245</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..1

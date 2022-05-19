@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './EvaluacionesTrabajadores.module.css';
 import Menu from '../../components/Menu/Menu';
@@ -15,7 +16,16 @@ import { useCookies } from 'react-cookie';
 
 const EvaluacionesTrabajadores = (props) => {
 
-  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos']);
+  const navigate = useNavigate();
+  const [cookies, setCookies] = useCookies(['correo', 'nombres', 'apellidos', 'tipo', 'estado']);
+
+  function iniciarEvaluacion() {
+    navigate('/competencias-trabajadores');
+  }
+
+  function iniciarCoevaluacion() {
+    navigate('/coevaluacion-trabajadores')
+  }
 
   return (
     <Container className="p-0" fluid>
@@ -96,13 +106,34 @@ const EvaluacionesTrabajadores = (props) => {
         </Row>
       </Container>
 
-      <Row className="w-100 justify-content-center m-0">
-        <Button as="input" value="Iniciar evaluación" className="text-capitalize w-25"/>
-      </Row>
 
-      <Row className="w-100 justify-content-center m-0 text-center bg-secondary">
-        <h4 className="text-light">Aún no se te ha asignado una evaluación o coevaluación</h4>
-      </Row>
+      {
+        cookies.estado == 1 ?
+          <Row className="w-100 justify-content-center m-0 text-center bg-secondary">
+            <h4 className="text-light">Aún no se te ha asignado la evaluación</h4>
+          </Row>
+        :
+        cookies.estado == 2 ?
+          <Row className="w-100 justify-content-center m-0">
+            <Button as="input" value="Iniciar evaluación" className="text-capitalize w-25" onClick={iniciarEvaluacion}/>
+          </Row>
+        :
+        cookies.estado == 3 ?
+          <Row className="w-100 justify-content-center m-0 text-center bg-secondary">
+            <h4 className="text-light">Aún no se te ha asignado la coevaluación</h4>
+          </Row>
+        :
+        cookies.estado == 4 ?
+          <Row className="w-100 justify-content-center m-0">
+            <Button as="input" value="Iniciar coevaluación" className="text-capitalize w-25"/>
+          </Row>
+        :
+          <Row className="w-100 justify-content-center m-0 text-center bg-secondary">
+            <h4 className="text-light">Has finalizado el procso de evaluación de desempeño. ¡Gracias!</h4>
+          </Row>
+      }      
+
+
 
     </Container>
   )
