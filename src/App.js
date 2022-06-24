@@ -4,10 +4,10 @@ import Login from './pages/Login/Login';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Trabajadores from './pages/Trabajadores/Trabajadores';
 import Evaluaciones from './pages/Evaluaciones/Evaluaciones.js';
+import EstadoEmpleadosGerentes from './pages/EstadoEmpleadosGerentes/EstadoEmpleadosGerentes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Homes
-import HomeGerentes from './pages/HomeGerentes/HomeGerentes';
 import HomeAuxiliar from './pages/HomeAuxiliar/HomeAuxiliar';
 import HomeOperarios from './pages/HomeOperarios/HomeOperarios';
 
@@ -15,7 +15,7 @@ import HomeOperarios from './pages/HomeOperarios/HomeOperarios';
 import ConfiguracionGerentes from './pages/ConfiguracionGerentes/ConfiguracionGerentes';
 
 
-const App=() => {
+const App =() => {
   return (
     <BrowserRouter>
       <Routes>
