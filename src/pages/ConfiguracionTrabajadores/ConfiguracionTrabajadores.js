@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './ConfiguracionGerentes.module.css';
+import styles from './ConfiguracionTrabajadores.module.css';
 
 // Componentes de React-Bootstrap
 import Menu from '../../components/Menu/Menu';
@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 
 // Services
@@ -18,7 +17,7 @@ import UsuariosService from '../../services/UsuariosService/UsuariosService';
 // Para las cookies
 import { useCookies } from 'react-cookie';
 
-const ConfiguracionGerentes = (props) => {
+const ConfiguracionTrabajadores = (props) => {
 
   // React router dom
   const navigate = useNavigate();
@@ -87,7 +86,7 @@ const ConfiguracionGerentes = (props) => {
 
   function putUsuarios() {
     let correoActual = cookies.correo;
-    UsuariosService.putUsuarios(correoActual, correo, contrasena, nombres, apellidos,)
+    UsuariosService.putUsuarios(correoActual, correo, contrasena, nombres, apellidos)
       .then(datos => {
         setCookies('correo', correo, { path: '/' });
         setCookies('nombres', nombres, { path: '/' });
@@ -190,8 +189,8 @@ const ConfiguracionGerentes = (props) => {
     </Container>
   )};
 
-ConfiguracionGerentes.propTypes = {};
+ConfiguracionTrabajadores.propTypes = {};
 
-ConfiguracionGerentes.defaultProps = {};
+ConfiguracionTrabajadores.defaultProps = {};
 
-export default ConfiguracionGerentes;
+export default ConfiguracionTrabajadores;

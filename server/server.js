@@ -6,13 +6,16 @@ const app = express();
 
 // Importando rutas
 const rUsuarios = require('./routes/usuarios.routes.js');
+const rCompetencias = require('./routes/competencias.routes.js');
+const rValoraciones = require('./routes/valoraciones.routes.js');
+const rValoracionesFinales = require('./routes/valoracionesFinales.routes.js');
 
 
 // Verificando conexión de mysql
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'masterkey',
+    password: 'root',
     database: 'evaluateasy'
 });
 
@@ -30,6 +33,10 @@ app.use(express.json())
 
 // Routes
 rUsuarios(app, connection); 
+rCompetencias(app, connection);
+rValoraciones(app, connection);
+rValoracionesFinales(app, connection);
+
 
 // Iniciando el servidor
 app.listen(3001, () => {

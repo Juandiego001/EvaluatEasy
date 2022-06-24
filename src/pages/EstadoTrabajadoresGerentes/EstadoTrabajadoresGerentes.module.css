@@ -1,0 +1,35 @@
+.Estado1 {
+    background-color: #CA6702;
+}
+
+.Estado2 {
+    background-color: #BB3E03;
+}
+
+.Estado3 {
+    background-color: #AE2012;
+}
+
+.Estado4 {
+    background-color: #9B2226;
+}
+
+.Estado5 {
+    background-color: #661619;
+}
+
+.Estado1, .Estado2, .Estado3, .Estado4, .Estado5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}
+
+.visibleTrue {
+    visibility: visible;
+}
+
+.visibleFalse {
+    visibility: hidden;
+}

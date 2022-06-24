@@ -1,0 +1,23 @@
+.EstadoA {
+    background-color: #CA6702;
+}
+
+.EstadoB {
+    background-color: #BB3E03;
+}
+
+.EstadoC {
+    background-color: #AE2012;
+}
+
+.EstadoD {
+    background-color: #9B2226;
+}
+
+.EstadoA, .EstadoB, .EstadoC, .EstadoD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100%;
+}

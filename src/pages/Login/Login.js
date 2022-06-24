@@ -6,8 +6,12 @@ import { useNavigate } from 'react-router-dom';
 // Services
 import UsuariosService from '../../services/UsuariosService/UsuariosService.js';
 
+// Para cookies
+import { useCookies } from 'react-cookie';
+
 const Login = (props) => {
 
+  const [cookies, setCookies] = useCookies(['nombres', 'apellidos', 'tipo']);
   const[correo, setCorreo] = useState();
   const[contrasena, setContrasena] = useState();
 
@@ -32,36 +36,39 @@ const Login = (props) => {
           let nombres = datos.data.nombres;
           let apellidos = datos.data.apellidos;
           let tipo = datos.data.tipo;
+          let estado = datos.data.estado;
+          
+          setCookies('correo', correo, {
+            path: '/'
+          });
+
+          setCookies('nombres', nombres, {
+            path: '/'
+          });
+
+          setCookies('apellidos', apellidos, {
+            path: '/'
+          });
+
+          setCookies('tipo', tipo, {
+            path: '/'
+          });
+
+          setCookies('estado', estado, {
+            path: '/'
+          });
 
           switch(tipo) {
             case 1:
-              navigate('/home-gerentes', { 
-                state: 
-                  { 
-                    nombres: nombres,
-                    apellidos: apellidos
-                  }
-                });
+              navigate('/home-gerentes');
               break;
 
               case 2:
-                navigate('/home-auxiliar', { 
-                  state: 
-                    { 
-                      nombres: nombres,
-                      apellidos: apellidos
-                    }
-                  });
+                navigate('/home-auxiliar');
                 break;
               
               case 3:
-                navigate('/trabajadores', { 
-                  state: 
-                    { 
-                      nombres: nombres,
-                      apellidos: apellidos
-                    }
-                  });
+                navigate('/home-trabajadores');
                 break;
           }
 
