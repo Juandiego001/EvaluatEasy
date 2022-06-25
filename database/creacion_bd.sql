@@ -91,11 +91,11 @@ INSERT INTO USUARIOS(correo, contrasena, nombres, apellidos, cargo, tipo)
 
 -- Inserción de evaluación
 INSERT INTO EVALUACIONES(correo_usuario_gerente, correo_usuario_trabajador, fechaAsignacion) 
-    VALUES('gerente1', '1112', '2022-05-19 00:00:00');
+    VALUES('gerente1', 'operario', '2022-05-19 00:00:00');
 
 -- Inserción de competencias
 INSERT INTO COMPETENCIAS(id_evaluacion, nombre, descripcion, letraA, letraB, letraC, letraD)
-    VALUES(1, 'Orientación al cliente', 
+    VALUES(3, 'Orientación al cliente', 
         -- Descripción
         'Se esfuerza por conocer y resolver las necesidades de los clientes, 
         demuestra iniciativas para desarrollar excelentes  relaciones con clientes internos y externos. 

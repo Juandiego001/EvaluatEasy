@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Login from './pages/Login/Login';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Trabajadores from './pages/Trabajadores/Trabajadores';
+import HomeGerentes from './pages/HomeGerentes/HomeGerentes';
+import TrabajadoresGerentes from './pages/TrabajadoresGerentes/TrabajadoresGerentes';
 import Evaluaciones from './pages/Evaluaciones/Evaluaciones.js';
-import EstadoEmpleadosGerentes from './pages/EstadoEmpleadosGerentes/EstadoEmpleadosGerentes';
+// import EstadoEmpleadosGerentes from './pages/EstadoEmpleadosGerentes/EstadoEmpleadosGerentes';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Homes
@@ -29,10 +29,10 @@ const App = () => {
         <Route path="/home-trabajadores" element={<HomeTrabajadores />} />
 
         {/* Secciones de Gerentes */}
-        {/* Para ir a ver el dashboard sencillamente accede al home gerentes ya que es lo primero que el gerente va a ver cuando inicie sesión */}
+        {/* Para ir a ver el HomeGerentes sencillamente accede al home gerentes ya que es lo primero que el gerente va a ver cuando inicie sesión */}
         <Route path="/" element={<Login />} />
-        <Route path="/home-gerentes" element={<Dashboard />} />
-        <Route path="/trabajadores" element={<Trabajadores />} />
+        <Route path="/home-gerentes" element={<HomeGerentes />} />
+        <Route path="/trabajadores" element={<TrabajadoresGerentes />} />
         <Route path="/configuracion-gerentes" element={<ConfiguracionGerentes />} />
         <Route path="/evaluaciones" element={<Evaluaciones></Evaluaciones>} />
         <Route path="/estado-trabajadores-gerentes" element={<EstadoTrabajadoresGerentes />} />

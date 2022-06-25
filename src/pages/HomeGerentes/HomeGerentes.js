@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import styles from './Dashboard.css';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { Chart } from 'react-google-charts';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
-import { MDBCard, MDBCardBody, MDBBtn, MDBCardTitle, MDBCardText, MDBCol, MDBRow } from 'mdb-react-ui-kit';
-import {
-  Button, Navbar, Container, NavDropdown, Offcanvas, Nav, FormControl, Form,
-  Card, CardGroup, CardDeck, CardColumns, CardBody, CardHeader, CardFooter,
-} from 'react-bootstrap';
+// import styles from './HomeGerentes.module.css';
 import Menu from '../../components/Menu/Menu';
+import { Chart } from 'react-google-charts';
 
+// React-bootstrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 export const data = [
   [
@@ -169,6 +168,7 @@ const rows = [
     null,
   ],
 ];
+
 const data2 = [columns, ...rows];
 export const options2 = {
   height: 400,
@@ -189,51 +189,50 @@ export const data3 = [
   ["Spain", 700],
 ];
 
-const Dashboard = () => {
+const HomeGerentes = () => {
 
   return (
-    <div>
+    <Container className="p-0" fluid>
       {/* Componente Menú */}
       <Menu />
 
+      <Row className="w-100 justify-content-center m-0 mt-2">
+        <Col className="mt-4">
+          <Card>
+            <Card.Body>
+              <Card.Title><b>Progreso de evaluaciones del mes</b></Card.Title>
+              <Card.Text className='row-cols-1 row-cols-md-12 g-4'>
+                <progress className="progress" value="75" max="100"></progress>
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-muted"><b>75%</b></Card.Footer>
+          </Card>
+        </Col>
 
-      <div className="container">
-        <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-          <MDBCol>
-            <MDBCard >
-              <MDBCardBody>
-                <MDBCardTitle><b>Progreso de evaluaciones del mes</b></MDBCardTitle>
-                <MDBCardText className='row-cols-1 row-cols-md-12 g-4'>
-                  <progress className="progress" value="75" max="100"></progress>
-                </MDBCardText>
-              </MDBCardBody>
-              <Card.Footer className="text-muted"><b>75%</b></Card.Footer>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard >
-              <MDBCardBody>
-                <MDBCardTitle><b>Implementacion de mejoras</b></MDBCardTitle>
-                <MDBCardText className='row-cols-1 row-cols-md-12 g-4'>
-                  <progress className="progress" value="25" max="100"></progress>
-                </MDBCardText>
-              </MDBCardBody>
-              <Card.Footer className="text-muted"><b>25%</b></Card.Footer>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard >
-              <MDBCardBody>
-                <MDBCardTitle><b>Evaluaciones realizadas </b></MDBCardTitle>
-                <MDBBtn routes="/Trabajadores" >Ver</MDBBtn>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </div>
+        <Col className="mt-4">
+          <Card>
+            <Card.Body>
+              <Card.Title><b>Implementacion de mejoras</b></Card.Title>
+              <Card.Text className='row-cols-1 row-cols-md-12 g-4'>
+                <progress className="progress" value="25" max="100"></progress>
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer className="text-muted"><b>25%</b></Card.Footer>
+          </Card>
+        </Col>
+
+        <Col className="mt-4">
+          <Card>
+            <Card.Body className="text-center row justify-content-center align-items-center">
+              <Card.Title>Evaluaciones realizadas</Card.Title>
+              <Button className="w-75" variant="success" routes="/Trabajadores" >Ver evaluaciones realizadas</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
 
 
-      <div className="container">
+      <Container className="mt-5">
         <Card className="text-center">
           <Card.Header><b>Progreso de competencias genereales</b></Card.Header>
           <Card.Body>
@@ -246,57 +245,53 @@ const Dashboard = () => {
             />
           </Card.Body>
           <Card.Footer className="text-muted">Hace 1 minuto</Card.Footer>
-        </Card>
-      </div>
+        </Card>      
+      </Container>
 
 
-      <div className="container">
-        <MDBRow className='row-cols-1 row-cols-md-2 g-4'>
-          <MDBCol>
-            <MDBCard >
-              <MDBCardBody>
-                <MDBCardTitle>Actividades Del Año</MDBCardTitle>
-                <Chart
-                  chartType="Gantt"
-                  width="100%"
-                  height="50%"
-                  data={data2}
-                  options={options2}
-                />
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard >
-              <MDBCardBody>
-                <MDBCardTitle>Empleados Por Localidad</MDBCardTitle>
-                <Chart
-                  chartEvents={[
-                    {
-                      eventName: "select",
-                      callback: ({ chartWrapper }) => {
-                        const chart = chartWrapper.getChart();
-                        const selection = chart.getSelection();
-                        if (selection.length === 0) return;
-                        const region = data[selection[0].row + 1];
-                        console.log("Selected : " + region);
-                      },
+      <Container className="mt-5">
+          <Card>
+            <Card.Body>
+              <Card.Title>Actividades Del Año</Card.Title>
+              <Chart
+                chartType="Gantt"
+                width="100%"
+                height="50%"
+                data={data2}
+                options={options2}
+              />
+            </Card.Body>
+          </Card>
+        </Container>
+
+        <Container className="my-5">
+          <Card>
+            <Card.Body>
+              <Card.Title>Empleados Por Localidad</Card.Title>
+              <Chart
+                chartEvents={[
+                  {
+                    eventName: "select",
+                    callback: ({ chartWrapper }) => {
+                      const chart = chartWrapper.getChart();
+                      const selection = chart.getSelection();
+                      if (selection.length === 0) return;
+                      const region = data[selection[0].row + 1];
+                      console.log("Selected : " + region);
                     },
-                  ]}
-                  chartType="GeoChart"
-                  width="100%"
-                  height="400px"
-                  data={data3}
-                />
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </div>
+                  },
+                ]}
+                chartType="GeoChart"
+                width="100%"
+                height="400px"
+                data={data3}
+              />
+            </Card.Body>
+          </Card>
+        </Container>
 
-
-    </div>
+    </Container>
   );
 }
 
-export default Dashboard;
+export default HomeGerentes;

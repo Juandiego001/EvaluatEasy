@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import { MDBInput } from "mdbreact";
 import Menu from '../../components/Menu/Menu';
+
+// React-bootstrap
+import Form from 'react-bootstrap/Form';
 
 const Evaluaciones = () => {
 
@@ -180,7 +181,7 @@ const Evaluaciones = () => {
                 <label htmlFor="example3">Observaciones privadas</label>
                 </div>
                 <div className='card-body'>
-                <MDBInput type="textarea" />
+                <Form.Control type="textarea" />
                 </div>
               </div>
               <div className="card-footer">
