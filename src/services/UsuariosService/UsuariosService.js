@@ -66,6 +66,10 @@ class UsuariosService {
     return await axios.get('http://localhost:3001/usuarios-trabajadores');
   }
 
+  async getTrabajador(correo) {
+    return await axios.get('http://localhost:3001/usuarios-trabajadores/' + correo);
+  }
+
   // Actualizar los trabajadores desde la interfaz de gerentes
   async putTrabajadores(correo, nuevoCorreo, contrasena, nombres, apellidos, cargo, tipo) {
     return await axios.put('http://localhost:3001/usuarios-trabajadores', {

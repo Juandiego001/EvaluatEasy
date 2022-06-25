@@ -144,8 +144,24 @@ exports.getTrabajadores = (connection, req, res) => {
     })
 }
 
-exports.postTrabajadores = (connection, req, res) => {
+// Obtener trabajador por correo
 
+exports.getTrabajador = (connection, req, res) => {
+    let correo = req.params.correo;
+
+    connection.query('SELECT * FROM USUARIOS WHERE correo = ?', [
+        correo
+    ], (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Ocurrió un error al intentar obtener el trabajador por correo');
+        } else {
+            res.status(200).send(results);
+        }
+    })
+}
+
+exports.postTrabajadores = (connection, req, res) => {
     let correo = req.body.correo;
     let contrasena = req.body.contrasena;
     let nombres = req.body.nombres;
@@ -180,6 +196,7 @@ exports.putTrabajadores = (connection, req, res) => {
         nuevoCorreo, contrasena, nombres, apellidos, cargo, tipo, correo
     ], (err, results, fields) => {
         if (err) {
+            console.log(err);
             res.status(500).send('Ocurrió un error al intentar actualizar los trabajadores.');
         } else {
             res.status(200).send(results);

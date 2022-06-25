@@ -33,18 +33,30 @@ const TrabajadoresGerentes = (props) => {
   const [nombres, setNombres] = useState('');
   const [apellidos, setApellidos] = useState('');
   const [tipo, setTipo] = useState('');
-  const [cargo, setCargo] = useState('');
+  const [cargo, setCargo] = useState('Auxiliar');
 
-  // Funciones handle
-  function handleCorreo(e) {
-    let trabajador = {
-      ...elTrabajador,
+  // Para mostrar la búsqueda
+  const [busqueda, setBusqueda] = useState('');
+  const [trabajadorBuscado, setTrabajadorBuscado] = useState(
+    {
       correo: {
-        original: elTrabajador.correo.original,
-        nuevo: e.target.value
-      }
-    }
-    setElTrabajador(trabajador);
+        original: '',
+        nuevo: ''
+      },
+      contrasena: '',
+      nombres: '',
+      apellidos: '',
+      cargo: '',
+      tipo: ''
+    });
+  
+  function handleBusqueda(e) {
+    setBusqueda(e.target.value);
+  }  
+
+  // Funciones handle para crear
+  function handleCorreo(e) {
+    setCorreo(e.target.value);
   }
 
   function handleContrasena(e) {
@@ -67,6 +79,58 @@ const TrabajadoresGerentes = (props) => {
     setCargo(e.target.value);
   }
 
+  // Funciones handle para actualizar
+  function handleCorreoActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      correo: {
+        original: elTrabajador.correo.original,
+        nuevo: e.target.value
+      }
+    }
+    setElTrabajador(trabajador);
+  }
+
+  function handleContrasenaActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      contrasena: e.target.value
+    }
+    setElTrabajador(trabajador);
+  }
+
+  function handleNombresActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      nombres: e.target.value
+    }
+    setElTrabajador(trabajador);
+  }
+
+  function handleApellidosActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      apellidos: e.target.value
+    }
+    setElTrabajador(trabajador);
+  }
+
+  function handleTipoActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      tipo: e.target.value
+    }
+    setElTrabajador(trabajador);
+  }
+
+  function handleCargoActualizar(e) {
+    let trabajador = {
+      ...elTrabajador,
+      cargo: e.target.value
+    }
+    setElTrabajador(trabajador);
+  }
+
   // Modals
   function handleModalCrear() {
     setModalCrear(!modalCrear);
@@ -76,12 +140,24 @@ const TrabajadoresGerentes = (props) => {
     setModalActualizar(!modalActualizar);
     
     if (trabajador != null) {
+      alert(trabajador);
+      console.log(trabajador);
       setElTrabajador(trabajador);
     }
   }
 
-  function agregarTrabajador() {
+  function obtenerTrabajadores() {
+    UsuariosService.getTrabajadores()
+      .then(datos => {
+        setLosTrabajadores(datos.data);
+      })
+      .catch(err => {
+        alert('Ocurrió un erroral intentar obtener nuevamente los trabajadores.');
+        console.log(err);
+      })
+  }
 
+  function agregarTrabajador() {
     // Validar que se haya digitado en todos los campos
     if (correo == '' || contrasena == '' || nombres == '' || apellidos == '' || 
         cargo == '' || tipo == '') {
@@ -90,57 +166,100 @@ const TrabajadoresGerentes = (props) => {
       UsuariosService.postUsuarios(correo, contrasena, nombres, apellidos, 
         cargo, tipo)
         .then(datos => {
-          alert('El trabajador ha sido creado con éxito');
+          alert('¡El trabajador ha sido creado con éxito!');
+          
+          // Obtener nuevamente los trabajadores
+          obtenerTrabajadores();
+          setBusqueda('');
+          // Para volver a colocar como null el trabajador buscado
+          resetTrabajadorBuscado();
 
-          // Se agrega el nuevo trabajador creado
-          let trabajador = {
-            correo: {
-              original: correo,
-              nuevo: ''
-            },
-            contrasena: contrasena,
-            nombres: nombres,
-            apellidos: apellidos,
-            cargo: cargo,
-            tipo: tipo
-          };
 
-          let trabajadores = losTrabajadores;
-          trabajadores.append(trabajador);
-
-          setLosTrabajadores(trabajadores);
-
-          handleModalCrear();
+          // Para cerrar el modal
+          setModalCrear(false);
         })
         .catch(err => {
           alert('Ocurrió un error al intentar crear el trabajador.');
+          console.log(err);
         })
     }
   }
 
   function editarTrabajador() {
-
     UsuariosService.putTrabajadores(elTrabajador.correo.original, elTrabajador.correo.nuevo, 
       elTrabajador.contrasena, elTrabajador.nombres, elTrabajador.apellidos,
       elTrabajador.cargo, elTrabajador.tipo)
       .then(datos => {
         alert('¡El trabajador ha sido actualizado con éxito!');
-        
-        let trabajadores = losTrabajadores;
 
-        for (let i = 0; i < trabajadores.length; i++) {
-          if (trabajadores[i].correo.original == elTrabajador.correo.original) {
-            trabajadores[i] = elTrabajador;
-          }
-        }
+        // Obtener nuevamente los trabajadores
+        obtenerTrabajadores();
+        setBusqueda('');
+        // Para volver a colocar como null el trabajador buscado
+        resetTrabajadorBuscado();
 
-        setLosTrabajadores(trabajadores);
-
-        handleModalActualizar();
+        setModalActualizar(false);
       })
       .catch(err => {
         alert('Ocurrió un error al intentar actualizar un trabajador.');
+        console.log(err);
       })
+  }
+
+  function eliminarTrabajador(correo) {
+    UsuariosService.deleteUsuarios(correo)
+      .then(datos => {
+        alert('¡El trabajador ha sido eliminado con éxito!');
+        obtenerTrabajadores();
+        setBusqueda('');
+
+        // Para volver a colocar como null el trabajador buscado
+        resetTrabajadorBuscado();
+      })
+      .catch(err => {
+        alert('Ocurrió un error al intentar eliminar el trabajador.');
+        console.log(err);
+      })
+
+  }
+
+  function buscarTrabajador() {
+    UsuariosService.getTrabajador(busqueda)
+      .then(datos => {
+
+        if (datos.data.length == 0) {
+          alert('No se encontró ningun trabajador con ese correo');
+        } else {
+          let trabajador = datos.data[0];
+          
+          trabajador.correo = {
+            original: trabajador.correo,
+            nuevo: trabajador.correo
+          }
+
+          setTrabajadorBuscado(trabajador);
+        }
+      })
+      .catch(err => {
+        alert('Ocurrió un error al intentar obtener el trabajador buscado.');
+        console.log(err);
+      })
+  }
+
+  function resetTrabajadorBuscado() {
+    let trabajador = {
+      correo: {
+        original: '',
+        nuevo: ''
+      },
+      contrasena: '',
+      nombres: '',
+      apellidos: '',
+      cargo: '',
+      tipo: ''
+    };
+
+    setTrabajadorBuscado(trabajador);
   }
 
   useEffect(() => {
@@ -165,11 +284,11 @@ const TrabajadoresGerentes = (props) => {
         </Col>
 
         <Col md={8} className="text-end mt-2">
-            <Form.Control type="text" name="buscar-empleado" id="buscar-empleado" placeholder="Buscar empleado" />
+            <Form.Control type="text" name="buscar-empleado" id="buscar-empleado" placeholder="Digite el correo del empleado" value={busqueda} onChange={handleBusqueda} />
         </Col>
 
         <Col md={2} className="text-center mt-2">
-          <Button>Buscar</Button>
+          <Button onClick={buscarTrabajador}>Buscar</Button>
         </Col>
       </Row>
 
@@ -202,32 +321,32 @@ const TrabajadoresGerentes = (props) => {
         </Row>
 
         {
-          losTrabajadores.map((trabajador, index) => (
-            <Row className="w-100 m-0">
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {index}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.correo.original}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.contrasena}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.nombres}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.apellidos}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.cargo}
-              </Col>
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-                {trabajador.tipo}
-              </Col>
+          busqueda == '' ?
+            losTrabajadores.map((trabajador, index) => (
+              <Row className="w-100 m-0">
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {index}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.correo.original}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.contrasena}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.nombres}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.apellidos}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.cargo}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajador.tipo}
+                </Col>
 
-              <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
-
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
                   <Button variant="warning" className="me-2" 
                     onClick={() => {
                       handleModalActualizar(trabajador)
@@ -235,10 +354,53 @@ const TrabajadoresGerentes = (props) => {
                       Editar
                     </Button>
 
-                  <Button variant="danger">Eliminar</Button>
-              </Col>
-            </Row>
-          ))
+                  <Button variant="danger"
+                    onClick={() => {
+                      eliminarTrabajador(trabajador.correo.original)
+                    }}>Eliminar</Button>
+                </Col>
+              </Row>
+            ))
+          :
+            trabajadorBuscado.correo.original != '' ?
+              <Row className="w-100 m-0">
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.correo.original}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.contrasena}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.nombres}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.apellidos}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.cargo}
+                </Col>
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                  {trabajadorBuscado.tipo}
+                </Col>
+
+                <Col className="d-flex justify-content-center align-items-center text-center border border-secondary py-3">
+                <Button variant="warning" className="me-2" 
+                    onClick={() => {
+                      handleModalActualizar(trabajadorBuscado)
+                    }}>
+                      Editar
+                    </Button>
+
+                  <Button variant="danger"
+                    onClick={() => {
+                      eliminarTrabajador(trabajadorBuscado.correo.original)
+                    }}>Eliminar</Button>
+                </Col>
+              </Row>
+            :
+              ''
         }
       </Container>
 
@@ -305,27 +467,27 @@ const TrabajadoresGerentes = (props) => {
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="correo">Correo</Form.Label>
-            <Form.Control type="email" name="correo" id="correo" onChange={handleCorreo} value={elTrabajador.correo.nuevo} /> 
+            <Form.Control type="email" name="correo" id="correo" onChange={handleCorreoActualizar} value={elTrabajador.correo.nuevo} /> 
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="contrasena">Contraseña</Form.Label>
-            <Form.Control type="text" name="contrasena" id="contrasena" onChange={handleContrasena} value={elTrabajador.contrasena} /> 
+            <Form.Control type="text" name="contrasena" id="contrasena" onChange={handleContrasenaActualizar} value={elTrabajador.contrasena} /> 
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="correo">Nombres</Form.Label>
-            <Form.Control type="text" name="nombres" id="nombres" onChange={handleNombres} value={elTrabajador.nombres} /> 
+            <Form.Control type="text" name="nombres" id="nombres" onChange={handleNombresActualizar} value={elTrabajador.nombres} /> 
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="correo">Apellidos</Form.Label>
-            <Form.Control type="text" name="apellidos" id="apellidos" onChange={handleApellidos} value={elTrabajador.apellidos} /> 
+            <Form.Control type="text" name="apellidos" id="apellidos" onChange={handleApellidosActualizar} value={elTrabajador.apellidos} /> 
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="correo">Cargo</Form.Label>
-            <Form.Select className="Form-Form.Select" name="cargo" id="cargo" onChange={handleCargo} defaultValue={elTrabajador.cargo} >
+            <Form.Select className="Form-Form.Select" name="cargo" id="cargo" onChange={handleCargoActualizar} defaultValue={elTrabajador.cargo} >
                 <option>Elige una opción</option>
 
                 {
@@ -361,7 +523,7 @@ const TrabajadoresGerentes = (props) => {
 
           <Form.Group className="mb-3">
             <Form.Label htmlFor="correo">Tipo:</Form.Label>
-            <Form.Control type="text" id="tipo"  onChange={setTipo} value={elTrabajador.tipo}  />
+            <Form.Control type="text" id="tipo"  onChange={handleTipoActualizar} value={elTrabajador.tipo}  />
           </Form.Group>
 
           <Modal.Footer>

@@ -47,6 +47,13 @@ module.exports = (app, connection) => {
         .put((req, res) => {
             cUsuarios.putTrabajadores(connection, req, res);
         });
+    
+    app.route('/usuarios-trabajadores/:correo')
+
+        // Obtener trabajador por correo
+        .get((req, res) => {
+            cUsuarios.getTrabajador(connection, req, res);
+        })
 
 
     app.route('/usuarios-trabajadores-estado')

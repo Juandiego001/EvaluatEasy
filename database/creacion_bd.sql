@@ -29,8 +29,8 @@ CREATE TABLE COEVALUACIONES(
     correo_usuario_trabajador VARCHAR(100) NOT NULL, 
     fechaAsignacion DATE NOT NULL,
     fechaFinalizacion DATE NULL,
-    CONSTRAINT fk_usuarios1 FOREIGN KEY (correo_usuario_gerente) REFERENCES USUARIOS(correo) ON DELETE CASCADE,
-    CONSTRAINT fk_usuarios2 FOREIGN KEY (correo_usuario_trabajador) REFERENCES USUARIOS(correo) ON DELETE CASCADE
+    CONSTRAINT fk_usuarios1 FOREIGN KEY (correo_usuario_gerente) REFERENCES USUARIOS(correo) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_usuarios2 FOREIGN KEY (correo_usuario_trabajador) REFERENCES USUARIOS(correo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE EVALUACIONES(
@@ -39,8 +39,8 @@ CREATE TABLE EVALUACIONES(
     correo_usuario_trabajador VARCHAR(100) NOT NULL,
     fechaAsignacion DATETIME NOT NULL,
     fechaFinalizacion DATETIME NULL,
-    CONSTRAINT fK_usuarios3 FOREIGN KEY (correo_usuario_gerente) REFERENCES USUARIOS(correo) ON DELETE CASCADE,
-    CONSTRAINT fK_usuarios4 FOREIGN KEY (correo_usuario_trabajador) REFERENCES USUARIOS(correo) ON DELETE CASCADE
+    CONSTRAINT fK_usuarios3 FOREIGN KEY (correo_usuario_gerente) REFERENCES USUARIOS(correo) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fK_usuarios4 FOREIGN KEY (correo_usuario_trabajador) REFERENCES USUARIOS(correo) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE COMPETENCIAS(
@@ -52,7 +52,7 @@ CREATE TABLE COMPETENCIAS(
     letraB VARCHAR(1000) NOT NULL,
     letraC VARCHAR(1000) NOT NULL,
     letraD VARCHAR(1000) NOT NULL,
-    CONSTRAINT fk_evaluaciones1 FOREIGN KEY (id_evaluacion) REFERENCES EVALUACIONES(id) ON DELETE CASCADE
+    CONSTRAINT fk_evaluaciones1 FOREIGN KEY (id_evaluacion) REFERENCES EVALUACIONES(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE VALORACIONES(
@@ -60,7 +60,7 @@ CREATE TABLE VALORACIONES(
     id_competencia INTEGER NOT NULL,
     quien INTEGER NOT NULL,
     letra VARCHAR(1) NOT NULL DEFAULT 'A',
-    CONSTRAINT fk_competencias1 FOREIGN KEY (id_competencia) REFERENCES COMPETENCIAS(id) ON DELETE CASCADE
+    CONSTRAINT fk_competencias1 FOREIGN KEY (id_competencia) REFERENCES COMPETENCIAS(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE VALORACIONES_FINALES(
@@ -68,7 +68,7 @@ CREATE TABLE VALORACIONES_FINALES(
     id_competencia INTEGER NOT NULL,
     quien INTEGER NOT NULL,
     letra VARCHAR(1) NOT NULL DEFAULT 'A',
-    CONSTRAINT fk_competencias2 FOREIGN KEY (id_competencia) REFERENCES COMPETENCIAS(id) ON DELETE CASCADE
+    CONSTRAINT fk_competencias2 FOREIGN KEY (id_competencia) REFERENCES COMPETENCIAS(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Inserción de un usuario GERENTE
@@ -95,7 +95,7 @@ INSERT INTO EVALUACIONES(correo_usuario_gerente, correo_usuario_trabajador, fech
 
 -- Inserción de competencias
 INSERT INTO COMPETENCIAS(id_evaluacion, nombre, descripcion, letraA, letraB, letraC, letraD)
-    VALUES(3, 'Orientación al cliente', 
+    VALUES(1, 'Orientación al cliente', 
         -- Descripción
         'Se esfuerza por conocer y resolver las necesidades de los clientes, 
         demuestra iniciativas para desarrollar excelentes  relaciones con clientes internos y externos. 
