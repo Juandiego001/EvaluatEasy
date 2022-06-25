@@ -1,3 +1,6 @@
+# EvaluatEasy
+Proyecto desarrollado en Reactcon MySQL para el curso de Ingeniería de Software II contemplando la problemática de las evaluaciones de desempeño en las diferentes empresas del sector. Actualmente se encuentra en desarrollo pero con un gran avance de funcionalidades y requerimientos detectados (25/06/2022).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
